@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+      
       <!-- Font Awesome code -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -24,13 +26,42 @@
       <!-- To activate media queries in devices -->
       <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1">
 
+
         {% if title %}
             <title>{{ title }}</title>
         {% else %}
             <title>About Us</title>
         {% endif %}
         
+      <link rel="icon" type="image/x-icon" href="static\icons\favicon2.ico">
+    
+    </head>
     <body>
+        <section class="section_carbon_app_navbar">
+          <div class="container">
+            <div class="carbon_app_navbar">
+              <h1 class="logo">
+                <span class="text-logo"><i class="fa-solid fa-leaf"></i> Carbon</span> App
+              </h1>
+              <nav>
+                <ul>
+                    <li>
+                        <a href="{{url_for('home')}}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('methodology')}}">Methology</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('carbon_app')}}">Carbon App</a>
+                    </li>
+                    <li>
+                      <a href="{{url_for('AboutUs')}}">About Us</a>
+                  </li>
+                </ul>
+              </nav> 
+            </div>
+          </div>
+        </section>
 
         {% block content %} {% endblock %}
 

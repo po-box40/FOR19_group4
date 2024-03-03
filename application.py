@@ -14,5 +14,11 @@ def methodology():
 def carbon_app():
     return render_template('carbon_app.html', title='carbon_app')
 
+
+@application.route('/AboutUs')
+def AboutUs():
+    return render_template('AboutUs.html', title='About Us')
+
+
 if __name__=='__main__':
   application.run(debug=True)  
