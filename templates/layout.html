@@ -39,9 +39,9 @@
 
 <body>
   <section class="section_carbon_app_navbar">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light d-flex">
-        <a class="navbar-brand me-right-2" href="#">
+    <div class="me-0">
+      <nav class="navbar navbar-expand-lg navbar-light d-flex padded-navbar">
+        <a class="navbar-brand me-lg-3" href="#">
           <h1 class="logo">
             <span class="text-logo"><i class="fa-solid fa-leaf"></i> Carbon</span> App
           </h1>
@@ -50,43 +50,40 @@
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+        <div class="collapse navbar-collapse flex-grow-1" id="navbarNav">
           <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item flex-grow-1">
+            <li class="nav-item me-lg-5">
               <a class="nav-link" href="{{url_for('home')}}"> Home</a>
             </li>
-            <li class="nav-item flex-grow-1 ">
+            <li class="nav-item me-lg-5">
               <a class="nav-link" href="{{url_for('methodology')}}">Methodology</a>
             </li>
-            <li class="nav-item flex-grow-1">
+            <li class="nav-item me-lg-5">
               <a class="nav-link" href="{{url_for('carbon_app')}}">Carbon App</a>
             </li>
-            <li class="nav-item flex-grow-1">
+            <li class="nav-item me-lg-5">
               <a class="nav-link" href="{{url_for('AboutUs')}}">About US</a>
             </li>
           </ul>
         </div>
       </nav>
-
-    </div>
     </div>
   </section>
+</body>
+{% block content %} {% endblock %}
 
-
-  {% block content %} {% endblock %}
-
-  <section class="section_footer">
-    <div class="container">
-      <div class="footer">
-        <h1>
-          Carbon App
-          <a href="#">
-            <i class="fa-solid fa-circle-up" style="color: #48cae4"></i>
-          </a>
-        </h1>
-      </div>
+<section class="section_footer">
+  <div class="container">
+    <div class="footer">
+      <h1>
+        Carbon App
+        <a href="#">
+          <i class="fa-solid fa-circle-up" style="color: #48cae4"></i>
+        </a>
+      </h1>
     </div>
-  </section>
+  </div>
+</section>
 
 </body>
 

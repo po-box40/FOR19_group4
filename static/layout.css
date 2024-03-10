@@ -47,6 +47,8 @@ img {
 /* Navbar */
 .navbar {
   border-bottom: black 1px solid;
+  padding: 2%;
+  background-color: #ffffff;
 }
 
 .navlink {
