@@ -1,82 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-      
-      <!-- Font Awesome code -->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head>
 
-      <!--Import the Bootstrap CSS file -->
-      <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-      crossorigin="anonymous"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-      />
+  <!-- CSS code -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
 
-      
-      <!-- CSS code -->
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
-      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='about_us.css') }}">
-
-      <!-- To activate media queries in devices -->
-      <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1">
+  <!-- Font Awesome code -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-        {% if title %}
-            <title>{{ title }}</title>
-        {% else %}
-            <title>About Us</title>
-        {% endif %}
-        
-      <link rel="icon" type="image/x-icon" href="static\icons\favicon2.ico">
-    
-    </head>
-    <body>
-        <section class="section_carbon_app_navbar">
-          <div class="container">
-            <div class="carbon_app_navbar">
-              <h1 class="logo">
-                <span class="text-logo"><i class="fa-solid fa-leaf"></i> Carbon</span> App
-              </h1>
-              <nav>
-                <ul>
-                    <li>
-                        <a href="{{url_for('home')}}">Home</a>
-                    </li>
-                     <li>
-                        <a href="{{url_for('methodology')}}">Methology</a>
-                    </li>
-                    <li>
-                        <a href="{{url_for('carbon_app')}}">Carbon App</a>
-                    </li>
-                    <li>
-                      <a href="{{url_for('AboutUs')}}">About Us</a>
-                  </li>
-                </ul>
-              </nav> 
-            </div>
-          </div>
-        </section>
 
-        {% block content %} {% endblock %}
 
-        <section class="section_footer">
-          <div class="container">
-            <div class="footer">
-              <h1>
-                Carbon App 
-                <a href="#">
-                  <i class="fa-solid fa-circle-up" style="color: #48cae4"></i>
-                </a>
-              </h1>
-            </div>
-          </div>
-        </section>
 
-    </body>
+  <!--Import the Bootstrap CSS file -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
+
+
+
+  <!-- To activate media queries in devices -->
+  <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1">
+
+
+  {% if title %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>About Us</title>
+  {% endif %}
+
+  <link rel="icon" type="image/x-icon" href="static\icons\favicon2.ico">
+
+</head>
+
+<body>
+  <section class="section_carbon_app_navbar">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light d-flex">
+        <a class="navbar-brand me-right-2" href="#">
+          <h1 class="logo">
+            <span class="text-logo"><i class="fa-solid fa-leaf"></i> Carbon</span> App
+          </h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
+          <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item flex-grow-1">
+              <a class="nav-link" href="{{url_for('home')}}"> Home</a>
+            </li>
+            <li class="nav-item flex-grow-1 ">
+              <a class="nav-link" href="{{url_for('methodology')}}">Methodology</a>
+            </li>
+            <li class="nav-item flex-grow-1">
+              <a class="nav-link" href="{{url_for('carbon_app')}}">Carbon App</a>
+            </li>
+            <li class="nav-item flex-grow-1">
+              <a class="nav-link" href="{{url_for('AboutUs')}}">About US</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    </div>
+    </div>
+  </section>
+
+
+  {% block content %} {% endblock %}
+
+  <section class="section_footer">
+    <div class="container">
+      <div class="footer">
+        <h1>
+          Carbon App
+          <a href="#">
+            <i class="fa-solid fa-circle-up" style="color: #48cae4"></i>
+          </a>
+        </h1>
+      </div>
+    </div>
+  </section>
+
+</body>
+
 </html>
