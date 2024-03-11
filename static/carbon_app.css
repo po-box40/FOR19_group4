@@ -5,63 +5,75 @@ Carbon App, section 2 (header, background): #466fa6
 Carbon App, section 2 (header, boxes): #8badd9
 */
 
-/* Utilities  */
-p {
-  margin: 10px 0;
-  font-size: 18px;
-}
-h4 {
-  font-size: 18px;
-  text-align: left;
-  font-weight: bold;
-}
-/* Section header */
-.section_header_carbon_app {
-  background-color:#466fa6;
-}
-.header_carbon_app {
-  display: flex;  
-  align-items: start;
-  background: #466fa6;
-}
-.header_carbon_app .box {
-  flex: 1;
-  background: #466fa6;
-  color: #fff;
-  border-radius: 10px;
-  margin: 20px 10px;
-  padding: 15px 20px;
-  text-align:center;
-  align-items: center;
-  justify-content: center;
-}
-.header_carbon_app .box:nth-of-type(1) {
-  flex-grow:2;
-}
-.header_carbon_app .box:nth-of-type(2) {
-  flex-grow:1;
-}
-.container_buttons_links_header_carbon_app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap:wrap;
-}
-.container_buttons_links_header_carbon_app a:hover {
-  color: #466fa6;
-}
-.container_buttons_links_header_carbon_app btn {
-  width: 100px;
-  height: 100px;
-  background: #466fa6;
-  color: #fff;
-  display: flex;
-  justify-content:center;
-  align-items:center;
+body {
+  background-color: #92e6a7ff;
 }
 
-@media (max-width:768px) { 
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+}
+
+
+.btn-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.btn-box {
+  height: fit-content;
+
+}
+
+
+#btn-login {
+  width: 15rem;
+  height: 6rem;
+  background-color: #208b3aff;
+  border-radius: 1.6rem;
+  border-width: 0;
+  color: white;
+}
+
+#btn-login a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+
+}
+
+.btn-carbon-app {
+  background-color: white;
+  color: #208b3aff;
+  border: #208b3aff 4px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 1.1rem;
+  margin: 1%;
+}
+
+.transport ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+}
+
+
+
+
+
+@media (max-width:768px) {
   .header_carbon_app {
     flex-direction: column;
-  } 
+  }
 }
