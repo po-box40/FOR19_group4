@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %} {% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+<!-- Header -->
+<section class="section_header_home">
+  <div class="container">
+
+    <div class="header_home">
+      <div class="box"> 
+        <h1 style="font-size:55px;"><span class="text-logo"> Home</span></h1>
+        <p style="text-align:left;">
+          Carbon dioxide emissions have continued to increase with economic growth. Paying attention to carbon consumption and striving for carbon neutrality are critical steps toward mitigating climate change impacts, preserving ecosystems, and ensuring a sustainable future for the planet.
+          </p>
+          <p>
+          Our app is aimed at making  people realize how much carbon they use for transportation and curb their carbon comsumption.
+        </p> 
+      </div>
+      <div class="box">
+        <img 
+          src="{{url_for('static', filename='home.svg')}}"
+          width="325" 
+          height="325"
+          alt=""/>
+      </div>
+    </div>
+
+  </div>
+</section> 
+
+        
+{% endblock content %}

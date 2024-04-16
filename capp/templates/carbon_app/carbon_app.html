@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='carbon_app.css') }}">
+<!-- Header -->
+<section class="section_header_carbon_app d-flex">
+    <div class="container flex-grow-1">
+
+        <div class="header_carbon_app flex-1">
+            <h1 class="fw-bold mt-3" style="font-size:55px;"><span class="text-logo"> Carbon Calculator</span></h1>
+            <div class="box">
+
+                <div class="d-flex flex-row-reverse">
+                    <p style="text-align:left;">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat dolores quos asperiores
+                        repellendus facilis cum illo aperiam odit doloremque nostrum. Totam excepturi labore
+                        voluptatibus
+                        iusto sapiente quisquam consectetur optio magnam voluptates omnis vel officia alias distinctio
+                        quas
+                        laborum reiciendis ratione inventore veniam, cupiditate doloribus dolore, eius natus a. Magni
+                        inventore consequuntur voluptas reprehenderit perferendis! Molestias aspernatur rem autem aut
+                        temporibus.
+                    </p>
+                    <div id="btn-box" class="m-3">
+                        <!-- Login button-->
+                        <div class="btn btn-carbon-app" id="btn-login">
+                            <a href="{{url_for('carbon_app.carbon_calculator_home')}}" class="btn btn-lg mr-2 fw-bold">Login</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="btn-section">
+                    <div class="btn btn-carbon-app">
+                        <a href="{{url_for('methodology.methodology_home')}}" class="btn btn-lg mr-2 fw-bold">Methodology</a>
+                    </div>
+                    <div class="btn btn-carbon-app">
+                        <a href="#" class="btn btn-lg mr-2 fw-bold" , data-toggle="modal"
+                            data-target="#carbon_app_instructions">Instructions</a>
+                    </div>
+                    <div class="btn btn-carbon-app">
+                        <a href="#" class="btn btn-lg mr-2 fw-bold">Your emissions</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+</section>
+
+
+{% endblock content %}
