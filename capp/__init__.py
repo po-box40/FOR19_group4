@@ -21,7 +21,7 @@ bcrypt = Bcrypt(application)
 
 # set up a login manager session
 login_manager = LoginManager(application)
-login_manager.login_view = "users.login"
+login_manager.login_view = "user.login"
 login_manager.login_message_category = "info"
 
 from capp.home.routes import home
