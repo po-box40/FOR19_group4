@@ -48,10 +48,11 @@ efco2 = {
     "Motorbike": {"Petrol": 0.114},
     "Bicycle": {"No Fossil Fuel": 0},
     "Walk": {"No Fossil Fuel": 0},
-    "Ferry": {
-        "Passenger": {"Diesel": 0.0187},
-        "Driver alone": {"Diesel": 0.1295},
-        "Driver with passengers": {"Diesel": 0.1295},
+
+    'Ferry': {
+        'Passenger': {'Diesel':0.0187},
+        'Driver alone': {'Diesel':0.1295},
+        'Driver with passengers' : {'Diesel':0.1295}
     },
     "Train": {"Fossil fuel": 0.041, "Electric": 0.004},
     "Motorbike": {"Petrol": 0.114},

@@ -4,7 +4,6 @@ from capp.models import User
 from capp import db, bcrypt
 from flask_login import login_user, current_user, logout_user
 
-
 user=Blueprint('user',__name__)
 
 @user.route('/register', methods=['GET','POST'])
