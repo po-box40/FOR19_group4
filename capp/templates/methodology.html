@@ -13,11 +13,18 @@
                     repellendus facilis cum illo aperiam odit doloremque nostrum.
                 </p>
                 <div class="container_buttons_links_header">
-                    <div class="col-sm-2"> <button><a href="#" class="btn">Paper</a></button></div>
-                    <div class="col-sm-2"><button><a href="{{url_for('carbon_app.carbon_app_home')}}" class="btn">Carbon
-                                App</a></button></div>
-
-
+                    <div class="col-sm-2">
+                        <button onclick="openPdfModal()">Paper</button>
+                    </div>
+                    
+                    <!-- PDF modal -->
+                    <div id="pdfModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closePdfModal()">&times;</span>
+                            <iframe id="pdfFrame" src="{{url_for('static', filename = 'Methodology_paper.pdf')}}" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"><button><a href="{{url_for('carbon_app.carbon_app_home')}}" class="btn">Carbon App</a></button></div>
                 </div>
             </div>
         </div>
@@ -32,15 +39,12 @@
         <div class="methodology">
             <h1> Methodology</h1>
             <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, ut? Praesentium quidem sunt
-                perspiciatis
-                doloremque fugiat nesciunt quaerat ullam, pariatur iure unde ratione ipsum adipisci repellendus,
-                repudiandae hic sit, temporibus molestias corrupti aut soluta sequi! Architecto deleniti expedita
-                nisi
-                repudiandae enim eum quas odit facilis placeat neque porro, animi incidunt consectetur. Maiores ab
-                saepe
-                tempora, iure asperiores beatae suscipit cum ipsum, rerum doloremque reprehenderit dolorum debitis,
-                aliquam quasi. Maiores corporis fuga quasi nesciunt dolor iste, inventore necessitatibus unde!
+                Welcome to our newly developed carbon emissions calculator application! 
+                Our aim is to assist both individuals and businesses in making well-informed choices regarding their carbon footprint and actively participating in efforts to diminish their environmental impact. 
+                This user-friendly app offers tailored suggestions for decreasing emissions based on your particular lifestyle or business activities. 
+                Utilizing a carbon footprint analysis methodology, we've curated comprehensive insights into various modes of transport, aiding users in understanding the greenhouse gas emissions associated with their travel choices. 
+                By monitoring your carbon emissions and utilizing our app's personalized recommendations, you can initiate meaningful changes to reduce your ecological footprint and contribute to a more sustainable future. 
+                Let's unite in our commitment to safeguarding our planet starting today!
             </p>
         </div>
 
@@ -54,71 +58,43 @@
         <!--Enumerated list (table)-->
         <div class=" methodology">
                 <div class="box_table">
-
-                </div>
-                <div class="box_table">
-                    <ol>
-                        <li>
-                            <h4>Buses</h4>
-                            <p class="text-left">
-                                The <strong>carbon dioxide emissions</strong> produced by buses are organized in
-                                <strong>four categories</strong>. The carbon dioxide emission produced by diesel buses
-                                is
-                                0.10231 grammes per kilometer. The carbon dioxide emission produced by CNG buses is 0.08
-                                grammes per kilometer. The carbon dioxide emission produced by petrol buses is 0.10231
-                                grammes per kilometer. If the buses do not use fossil fuel, their dioxide carbon
-                                emissions
-                                are 0 grammes per kilometer.
-                                <br>
-                                To work out buses dioxide emissions, we use the next formula:
-                                \[CO^2 = {Cte + \sqrt{f(km)} \over t}.\]
-                                <br>
-                                Where:
-                            <ul style="text-align:left;">
-                                <li>
-                                    \(Cte\) is a constant, since the engine requires some fuel to initialize.
-                                </li>
-                                <li>
-                                    \(km\) are the kilometers.
-                                </li>
-                                <li>
-                                    \(f\) is a coefficient depending on the type of fuel (see paragraph above).
-                                </li>
-                                <li>
-                                    \(t\) is the temperature, since in winter the engines require less fuel.
-                                </li>
-                            </ul>
-
-                            </p>
-                        </li>
-                        <li>
-                            <h4>Cars</h4>
-                            <p class="text-left">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum molestias minus nam, magnam
-                                error magni inventore rem debitis est, odio explicabo ducimus! Accusantium libero amet,
-                                cum
-                                tenetur earum dolores perferendis!
-                            </p>
-                        </li>
-                        <li>
-                            <h4>Planes</h4>
-                            <p class="text-left">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, aspernatur eos,
-                                ab
-                                necessitatibus iusto quos vel odit praesentium asperiores repudiandae reprehenderit aut
-                                similique veniam eius provident. Quibusdam harum doloribus facere tenetur qui
-                                cupiditate,
-                                deleniti, rerum enim voluptas eligendi, vel quod.
-                            </p>
-                        </li>
-                    </ol>
-                </div>
-                <div class="box_table">
+                    <body>
+                        <div class="formula-box">
+                            \[
+                            \text{General Formula}:
+                            \]
+                            \[
+                            e : \text{CO2 emissions per km}
+                            \]
+                            \[
+                            d : \text{number of kilometers travelled}
+                            \]
+                            \[
+                            \text{Formula for total emissions} : (e \times d)
+                            \]
+                        </div>
+                    </body>
+                    
+                
 
                 </div>
         </div>
 
-    </div>
+        <script>
+ // Function to open the PDF modal
+function openPdfModal() {
+    document.getElementById('pdfModal').style.display = 'block';
+}
+
+// Function to close the PDF modal
+function closePdfModal() {
+    document.getElementById('pdfModal').style.display = 'none';
+}
+        </script>
+    
+</div>
 </section>
+
+
 
 {% endblock content %}

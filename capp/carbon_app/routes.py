@@ -49,6 +49,15 @@ efco2 = {
     "Bicycle": {"No Fossil Fuel": 0},
     "Walk": {"No Fossil Fuel": 0},
 }
+    'Ferry': {
+        'Passenger': {'Diesel':0.0187},
+        'Driver alone': {'Diesel':0.1295},
+        'Driver with passengers' : {'Diesel':0.1295}
+    },
+    'Train':{'Fossil fuel': 0.041, 'Electric': 0.004},
+    'Motorbike':{'Petrol':0.114},
+    'Bicycle':{'No Fossil Fuel':0},
+    'Walk':{'No Fossil Fuel':0}}
 
 
 carbon_app = Blueprint("carbon_app", __name__)
@@ -121,8 +130,11 @@ def new_entry_bus():
 
         # Calculate total CO2 emissions
         total_co2_emissions = co2 * kms
+        co2 = float(kms) * efco2['Bus'][fuel]
+        co2 = round(co2, 4)
+    
 
-        return f"Total CO2 emissions for the bus journey: {total_co2_emissions}"
+        return f'Total CO2 emissions for the bus journey: {co2}'
 
     return render_template(
         "carbon_app/new_entry_bus.html", title="New Entry Bus", form=form
@@ -149,7 +161,7 @@ def new_entry_car():
         co2 = float(kms) * efco2["Car"][size][fuel] * factor
 
         # Round the CO2 emissions value to two decimal places
-        co2 = round(co2, 2)
+        co2 = round(co2, 4)
 
         return f"CO2 emissions: {co2}"  # Corrected indentation
 
@@ -166,12 +178,10 @@ def new_entry_train():
         fuel = form.fuel_type.data
 
         # Get the CO2 emissions per kilometer for the selected fuel type
-        co2 = float(kms) * efco2["Train"][fuel]
+        co2 = float(kms) * efco2['Train'][fuel]
+        co2 = round (co2, 4)
 
-        # Calculate total CO2 emissions
-        total_co2_emissions = co2 * kms
-
-        return f"Total CO2 emissions for the train journey: {total_co2_emissions}"
+        return f'Total CO2 emissions for the train journey: {co2}'
 
     return render_template(
         "carbon_app/new_entry_train.html", title="New Entry Train", form=form
@@ -188,7 +198,7 @@ def new_entry_plane():
         # Get the CO2 emissions per kilometer for the selected flight type
         co2 = float(kms) * efco2["Plane"][flight_type]["Petrol"]
 
-        co2 = round(co2, 2)
+        co2 = round(co2, 4)
 
         return f"Total CO2 emissions for the {flight_type}: {co2}"
 
@@ -207,9 +217,9 @@ def new_entry_motorbike():
         # Get the CO2 emissions per kilometer for the selected fuel type
         co2 = float(kms) * efco2["Motorbike"][fuel]
 
-        co2 = round(co2, 2)
-
-        return f"Total CO2 emissions for the motorbike journey: {co2}"
+        co2 = round(co2, 4)
+        
+        return f'Total CO2 emissions for the motorbike journey: {co2}'
 
     return render_template(
         "carbon_app/new_entry_motorbike.html", title="New Entry Motorbike", form=form
@@ -225,7 +235,7 @@ def new_entry_walk():
 
         co2 = float(kms) * efco2["Walk"][fuel]
 
-        co2 = round(co2, 2)
+        co2 = round(co2, 4)
 
         return f"Total CO2 emissions for the walking tour: {co2}"
 
@@ -241,16 +251,13 @@ def new_entry_bicycle():
         kms = form.kms.data
         fuel = form.fuel_type.data
 
-        co2 = float(kms) * efco2["Bicycle"][fuel]
+        co2 = float(kms) * efco2['Bicycle'][fuel]
 
-        co2 = round(co2, 2)
+        co2 = round(co2, 4)
 
-        return f"Total CO2 emissions for the bicycle journey: {co2}"
-
-    return render_template(
-        "carbon_app/new_entry_bicycle.html", title="New Entry Bicycle", form=form
-    )
-
+        return f'Total CO2 emissions for the bicycle journey: {co2}'
+    
+    return render_template('carbon_app/new_entry_bicycle.html', title='New Entry Bicycle' , form=form)
 
 @carbon_app.route("/carbon_app/new_entry_ferry", methods=["GET", "POST"])
 def new_entry_ferry():
@@ -260,28 +267,36 @@ def new_entry_ferry():
         travel_option = form.travel_option.data
         passengers = form.passengers.data
 
-        # Get the CO2 emissions per km for the selected travel option and fuel type
-        co2_per_km = efco2["Ferry"][travel_option]["Diesel"]
 
-        # Define the CO2 emissions per km for one passenger (driver)
-        e = co2_per_km
+        if travel_option == 'Passenger':
+            co2 = float(kms) * efco2['Ferry'][travel_option]['Diesel']
+            co2 = round(co2, 4)
 
-        # Define the CO2 emissions per km for additional passengers
-        e_prime = 0  # Assuming no additional emissions for passengers in this case
-        if travel_option == "Driver with passengers":
-            e_prime = co2_per_km
 
-        # Calculate total CO2 emissions for the ferry journey
-        total_co2_emissions = (e * kms) + (e_prime * kms * passengers)
+        if travel_option == 'Driver alone':
+             co2 = float(kms) * efco2['Ferry'][travel_option]['Diesel']
+             co2 = round(co2, 4)
+        
+
+        if travel_option == 'Driver with passengers': 
+
+            co2_driver = float(kms) * efco2['Ferry'][travel_option]['Diesel']
+            co2_passengers = float(kms) * efco2['Ferry']['Passenger']['Diesel'] * passengers
+
+            co2 = co2_passengers + co2_driver
+            co2 = round(co2, 4)
 
         # Calculate CO2 emissions per passenger
-        if travel_option == "Alone":
-            co2_per_passenger = total_co2_emissions
-        else:
+        if travel_option == 'Passenger':
+            co2_per_passenger = co2
+        if travel_option == 'Driver alone':
+            co2_per_passenger = co2
+        if travel_option == 'Driver with passengers': 
             P = passengers + 1  # Total number of passengers including the driver
-            co2_per_passenger = total_co2_emissions / P
+            co2_per_passenger = co2 / P
+            co2_per_passenger = round(co2_per_passenger, 4)
 
-        return f"Total CO2 emissions for the ferry journey: {total_co2_emissions}, CO2 emissions per passenger: {co2_per_passenger}"
+        return f'Total CO2 emissions for the ferry journey: {co2}, CO2 emissions per passenger: {co2_per_passenger}'
 
     return render_template(
         "carbon_app/new_entry_ferry.html", title="New Entry Ferry", form=form

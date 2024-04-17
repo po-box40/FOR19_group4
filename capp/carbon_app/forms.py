@@ -41,7 +41,7 @@ class BicycleForm(FlaskForm):
 class FerryForm(FlaskForm):
     kms = FloatField('Kilometers', validators=[InputRequired()])
     travel_option = SelectField('Travel Option', choices=[
-        ('Alone', 'Alone'),
+        ('Passenger', 'Passenger'),
         ('Driver alone', 'Driver alone'),
         ('Driver with passengers', 'Driver with passengers')
     ], validators=[InputRequired()])
