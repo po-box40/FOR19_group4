@@ -63,7 +63,11 @@
             <a class="nav-link" href="{{url_for('methodology.methodology_home')}}">Methodolgy</a>
             <a href="{{url_for('aboutUs.aboutUs_home')}}" class="nav-link"> About Us
             </a>
+            {% if current_user.is_authenticated %}
+            <a class="nav-link" href="{{url_for('user.logout')}}">Logout</a>
+            {% else %}
             <a class="nav-link" href="{{url_for('user.login')}}">Login</a>
+            {% endif %}
           </div>
         </div>
       </div>
