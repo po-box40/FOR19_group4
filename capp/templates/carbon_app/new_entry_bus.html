@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-
+<link rel="stylesheet" href="{{ url_for('static', filename='new_entry.css') }}">
 <section class="new_entry">
   <div class="container">
       <div class="box"></div>
       <div class="box">   
-        <div class="h1 mb-3" style="text-align: center;">
+        <div class="h1 mb-3">
           <i class="fa-solid fa-bus"></i>
         </div>
         <h3>Bus CO2 Emissions Calculator</h3>
@@ -19,46 +19,49 @@
             </li>
           </ol>
         </p>
-          <form method="POST" action="">
-              {{ form.csrf_token }}
-              <fieldset class="form-group">
-
-                <div class="form-group">
-                    {{ form.kms.label(class="form-control-label") }}
-                    {% if form.kms.errors %}
-                        {{ form.kms(class="form-control form-control-lg is-invalid", placeholder="Enter kilometers") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.kms.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.kms(class="form-control form-control-lg", placeholder="Enter kilometers") }}
-                    {% endif %}
-                </div>
-
-                <div class="form-group">
-                    {{ form.fuel_type.label(class="form-control-label") }}
-                    {% if form.fuel_type.errors %}
-                        {{ form.fuel_type(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for error in form.fuel_type.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.fuel_type(class="form-control form-control-lg") }}
-                    {% endif %}
-                </div>
-              </fieldset>
-              <br>
+        <form method="POST" action="">
+          {{ form.csrf_token }}
+          <div class="row">
+            <div class="col-md-6">
               <div class="form-group">
-                {{ form.submit(class="btn_carbon_app_new_entry_main") }}
+          {{ form.kms.label(class="form-control-label") }}
+          {% if form.kms.errors %}
+            {{ form.kms(class="form-control form-control-lg is-invalid", placeholder="Enter kilometers") }}
+            <div class="invalid-feedback">
+              {% for error in form.kms.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.kms(class="form-control form-control-lg", placeholder="Enter kilometers") }}
+          {% endif %}
               </div>
-          </form>
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+               {{ form.fuel_type.label(class="form-control-label") }}
+            {% if form.fuel_type.errors %}
+            {{ form.fuel_type(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.fuel_type.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.fuel_type(class="form-control form-control-lg") }}
+          {% endif %}
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="form-group col-md-10 mt-2 mb-5">
+            {{ form.submit(class="btn_carbon_app_new_entry_main") }}
+          </div>
+        </form>
       </div>
       <div class="box"></div>
   </div>
-</section>
+</section>  
 
 {% endblock content %}

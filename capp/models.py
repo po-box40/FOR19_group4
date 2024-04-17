@@ -30,3 +30,6 @@ class Transport(db.Model):
     co2 = db.Column(db.Float)
     total = db.Column(db.Float)
     user_id = db.Column(db.Integer, db.ForeignKey("user_table.id"), nullable=False)
+
+    def __repr__(self):
+        return f"Transport('{self.kms}', '{self.transport}', '{self.fuel}', '{self.date}', '{self.co2}', '{self.total}', '{self.user_id}')"

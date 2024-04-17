@@ -6,7 +6,8 @@ Carbon App, section 2 (header, boxes): #8badd9
 */
 
 body {
-  background-color: #92e6a7ff;
+  background: #142C35;
+  color: #FFF;
 }
 
 .box {
@@ -68,8 +69,37 @@ body {
   padding: 0;
 }
 
+#chart_grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+  margin: 1rem;
+}
 
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #C2E890;
+  border-radius: 0.5rem;
 
+}
+
+.chart_box {
+  border-radius: 0.5rem;
+}
+
+#entry_table {
+  color: #FFF;
+  background: #C2E890;
+
+}
+
+#emissions_by_transport {
+  width: 50%;
+  height: 50%;
+}
 
 
 @media (max-width:768px) {
