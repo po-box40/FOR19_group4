@@ -1,31 +1,35 @@
-
-{% extends "layout.html" %} {% block content %}
+{% extends "layout.html" %}
+{% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
 <!-- Header -->
-<section class="section_header_home">
-  <div class="container">
 
-    <div class="header_home">
-      <div class="box"> 
-        <h1 style="font-size:55px;"><span class="text-logo"> Home</span></h1>
-        <p style="text-align:left;">
-          Carbon dioxide emissions have continued to increase with economic growth. Paying attention to carbon consumption and striving for carbon neutrality are critical steps toward mitigating climate change impacts, preserving ecosystems, and ensuring a sustainable future for the planet.
-          </p>
-          <p>
-          Our app is aimed at making  people realize how much carbon they use for transportation and curb their carbon comsumption.
-        </p> 
+<div class="container">
+
+  <div id="header_home">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Building the green future together</h1>
+
+        <p>Greenify is made to provide users with a tool to visualize carbon emissions, produced by transport.</p>
+
       </div>
-      <div class="box">
-        <img 
-          src="{{url_for('static', filename='home.svg')}}"
-          width="325" 
-          height="325"
-          alt=""/>
+      <div class="col-md-3">
+        <img src="{{ url_for('static', filename='images/earth_greenify.png') }}" alt="home" class="img-fluid">
+
       </div>
+
+      <!-- Login and register button-->
+      <div class="row">
+        <div class="col-sm-2">
+          <button class="btn"><a href="{{url_for('user.login')}}">Login</a></button>
+        </div>
+        <div class="col-sm-2">
+          <button class="btn"><a href="{{url_for('user.register')}}">Register</a></button>
+        </div>
+      </div>
+
+
     </div>
 
-  </div>
-</section> 
 
-        
-{% endblock content %}
+    {% endblock content %}

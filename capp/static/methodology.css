@@ -7,8 +7,52 @@ Methodology, section 2 (methodology, boxes): #8badd9
 
 /* Utilities  */
 body {
-  background-color: #ead1dcff;
+  background: #142C35;
   color: black;
+}
+
+.header h1 {
+  color: #FFF;
+  font-family: Outfit;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+}
+
+.header p {
+  color: #E6CF8B;
+  font-family: Outfit;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.header button {
+  width: 95%;
+  padding: 0.25rem;
+  border-radius: .5rem;
+  border: none;
+  background: #C2E890;
+}
+
+.header button a {
+  font-size: 1.15rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+
+
+
+.methodology {
+  display: block;
+  justify-content: center;
+  align-items: center;
+
 }
 
 p {
@@ -26,19 +70,14 @@ ol {
   font-size: 18px;
 }
 
-/* Section header */
-.section_header_methodology {
-  background-color: #ead1dcff;
-}
+
 
 .header {
-  margin: 50px;
-  border-radius: 20px;
+
   align-items: center;
   justify-content: center;
   display: flex;
-  background: #fff1fcff;
-  color: black
+
 }
 
 .header .box {
@@ -53,47 +92,21 @@ ol {
   justify-content: center;
 }
 
-.header .box:nth-of-type(1) {
-  flex-grow: 2;
-}
-
-.header .box:nth-of-type(2) {
-  flex-grow: 1;
-}
-
 .container_buttons_links_header {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  flex-wrap: wrap;
-}
-
-.container_buttons_links_header a:hover {
-  color: #2a4359;
-}
-
-.container_buttons_links_header btn {
-  width: 100px;
-  height: 100px;
-  background: #2a4359;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 1rem;
 }
 
 /* Section methodology */
 
 
 .section_body_methodology {
-
-  font-family: 'Times New Roman', Times, serif;
   flex: 1;
-  background-color: #fff1fcff;
-  color: black;
-  border-radius: 20px;
-  margin: 50px;
-  padding: 15px 15px;
+  background: #D9D9D9;
+  color: #142C35;
+  border-radius: 1.25rem;
   text-align: center;
   align-items: center;
   justify-content: center;

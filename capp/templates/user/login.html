@@ -1,22 +1,31 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <!-- Your content goes here -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h1>Login</h1>
-                <form method="POST">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-            </div>
+<!-- Your content goes here -->
+<!-- Link to the login.css in the static folder-->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+
+<div class="container">
+    <div class="row">
+        <div id="loginForm" class="col-md-6 offset-md-3">
+            <h1>Login Form</h1>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <a class="mt-3" href="#">Forgot Password?</a>
+                </div>
+
+
+
+                <button type="submit" class="btn">Login</button>
+
+                <p class="mt-4">Not a member? <a href="{{url_for('user.register')}}">Register</a></p>
+            </form>
         </div>
-{% endblock %}
+    </div>
+    {% endblock %}
