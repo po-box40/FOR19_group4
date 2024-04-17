@@ -1,17 +1,18 @@
 /* Google fonts Roboto  */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 /* CSS utilities */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: Outfit, sans-serif;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background: #fff;
-  line-height: 1.6;
+  font-family: Outfit, sans-serif;
+  background-color: #142C35;
+  line-height: normal;
 }
 
 .container {
@@ -22,11 +23,6 @@ body {
 ul {
   list-style: none;
   font-size: 400;
-}
-
-a {
-  color: #48cae4;
-  text-decoration: none;
 }
 
 h1,
@@ -45,18 +41,26 @@ img {
 }
 
 /* Navbar */
+#section_carbon_app_navbar {
+  background-color: #142C35;
+  color: #FFF;
+}
+
+
 .navbar {
   border-bottom: black 1px solid;
   padding: 2%;
-  background-color: #ffffff;
+  background-color: #142C35;
+  color: #FFF;
+
 }
 
-.navlink {
+#section_carbon_app_navbar .nav-link {
   font-size: 1rem;
-  color: #000;
+  color: #FFF;
 }
 
-.navlink link:hover {
+.nav-link link:hover {
   color: #48cae4;
 }
 
