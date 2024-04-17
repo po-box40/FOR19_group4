@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<canvas id="emissions_by_transport"></canvas>
+
+    <!-- a div with the db_entries from the backend with jinja-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">Your emissions total emissions per transport type</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Tranport type</th>
+                            <th scope="col">Emissions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in transport_emissions %}
+                            <tr>
+                                <td>{{ entry["transport"] }}</td>
+                                <td>{{ entry["total"] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Get the JSON data from the backend
+        let transport_emissions_json = JSON.parse({{ transport_emissions_json | tojson | safe }});
+        // Extract the necessary data for the chart
+        const labels = transport_emissions_json.map(item => item.transport);
+        const values = transport_emissions_json.map(item => item.total);
+
+        // Create the donut chart
+        const ctx = document.getElementById('emissions_by_transport').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: values,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                    ],
+                }],
+            },
+            options: {
+                responsive: true,
+            },
+        });
+
+    </script>
+{% endblock %}
