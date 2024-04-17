@@ -16,6 +16,16 @@ body {
 
 }
 
+.container {
+  margin: 0;
+  width: 100%;
+}
+
+#header_home {
+  margin: auto;
+  width: fit-content;
+}
+
 #header_home h1 {
   color: #FFF;
   font-family: Outfit;
@@ -49,6 +59,25 @@ body {
   line-height: normal;
   text-decoration: none;
 }
+
+.home-illustration {
+  width: 100%;
+}
+
+#info_home {
+  background-image: url('/static/image/home_background.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 @media (max-width:768px) {
   .header_home {
