@@ -41,10 +41,13 @@
             </p>
         </div>
 
-        <!--Enumerated list (table)-->
         <div class=" methodology">
                 <div class="box_table">
                     <body>
+                        <p> This is the genral formula for calculating the CO2 emissions. We multply the co2 equivalents with the number of km traveld. Some of the transport mothods used tihis simple fromula, whilst others have small varibale changes. This will shown under. 
+                            The co2 emissions for each transport method for one kilometer are presented in a table at the bottom of the page.
+                        </p>
+                        
                         <div class="formula-box">
                             \[
                             \text{General Formula}:
@@ -59,9 +62,146 @@
                             \text{Formula for total emissions} : (e \times d)
                             \]
                         </div>
-                        <p> This is the genral formula for calculating the CO2 emissions. We multply the co2 equivalents with the number og km traveld. 
+                        <p> 
+                         This is the foumal we use to calcucalte emissions for cars.
+                          We chose to give the variable w three possible values. 
+                          A standard size vehicle is being attributed the value 1. 
+                          We consider that an SUV, for a same distance, is responsible for 15% more CO2 emissions on average than the standard sized vehicle, which corresponds to the value of 1,15.
+                        Asmall sized vehicle, which on average emits 15% less CO2 than a standard sized vehicle is attributed the value of 0,85.
+                        </p>
+                        <div class="formula-box">
+                            \[
+                            \text{Car formula}:
+                            \]
+                            \[
+                            e : \text{CO2 emissions per km}
+                            \]
+                            \[
+                            d : \text{number of kilometers travelled}
+                            \]
+                            \[
+                            w : \text{car wheight coefficient}
+                            \]
+                            \[
+                            \text{Formula for total emissions} : (e \times d \times w )
+                            \]
+                        </div>
+                        <p>
+                        For the plane, train, bus and ferry we apply the same principle. Emission per kilometer multplied by the number of kilometers. For this shared methods, the number is for one passenger rather than the whole tour. 
+                        We introduce also another formula which can be used to find the emmisions for all the passengers. 
+                       </p>
+                        <div class="formula-box">
+                            \[
+                            \text{Shared transport}:
+                            \]
+                            \[
+                            e : \text{CO2 emissions per km per passenger}
+                            \]
+                            \[
+                            d : \text{number of kilometers travelled}
+                            \]
+                            \[
+                            p : \text{number of passengers}
+                            \]
+                            \[
+                            \text{Formula for emissions per passenger} : (e \times d)
+                            \]
+                            \[ \text{Formula for total emissions} : \left(\frac{e \times d}{p}\right) 
+                            \]
+                        </div>
+                        <p> We intorduce one last formula, for calculating emmsions for takin teh ferry with a car. 
 
                         </p>
+                        <div class="formula-box">
+                            \[
+                            \text{Fetty with a car}:
+                            \]
+                            \[
+                            e : \text{CO2 emissions per km for alone driver}
+                            \]
+                            \[
+                            e' : \text{CO2 emissions per km for one additiona passenger}
+                            \]
+                            \[
+                            d : \text{number of kilometers travelled}
+                            \]
+                            \[
+                            p' : \text{number of additional passengers}
+                            \]
+                            \[
+                            p : \text{number of total passengers}
+                            \]
+                            \[
+                            \text{Formula for emissions for one car} : (e \times d) + (e' \times d \times p')
+                            \]
+                            \[ \text{Formula for emissions per passenger of the car} : \left(\frac{(e \times d) + (e' \times d \times p')}{p}\right) 
+                            \]
+                        </div>
+                        <div class=" formula-box">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th>Transport Method</th>
+                                <th>Emission in CO2_eq per kilometre</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Motorbike</td>
+                                <td>0.114 kg</td>
+                              </tr>
+                              <tr>
+                                <td>Diesel car</td>
+                                <td>0.171 kg</td>
+                              </tr>
+                              <tr>
+                                <td>Petrol car</td>
+                                <td>0.192 kg</td>
+                              </tr>
+                              <tr>
+                                <td>Hybrid car</td>
+                                <td>0.068 kg</td>
+                              </tr>
+                              <tr>
+                                <td>Electric car</td>
+                                <td>0.047 kg</td>
+                              </tr>
+                              <tr>
+                                <td>Bus</td>
+                                <td>0.097 kg/passenger</td>
+                              </tr>
+                              <tr>
+                                <td>Domestic flight</td>
+                                <td>0.246 kg/passenger</td>
+                              </tr>
+                              <tr>
+                                <td>Short-haul flight</td>
+                                <td>0.151 kg/passenger</td>
+                              </tr>
+                              <tr>
+                                <td>Long-haul flight</td>
+                                <td>0.147 kg/passenger</td>
+                              </tr>
+                              <tr>
+                                <td>Electric train</td>
+                                <td>0.004 kg/passenger</td>
+                              </tr>
+                              <tr>
+                                <td>Diesel train</td>
+                                <td>0.041 kg/passenger</td>
+                              </tr>
+                              <tr>
+                                <td>Ferry as person</td>
+                                <td>0.0187 kg/passenger</td>
+                              </tr>
+                              <tr>
+                                <td>Ferry as passenger of car</td>
+                                <td>0.1295 kg/passenger</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                          
                     </body>
                     
                 
