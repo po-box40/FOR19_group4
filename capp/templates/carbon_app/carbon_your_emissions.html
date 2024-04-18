@@ -31,10 +31,17 @@
                 <tbody>
                     {% for entry in db_entries %}
                     <tr>
-                        <td>{{ entry.date }}</td>
+                        <td>{{ entry.date.strftime('%Y-%m-%d %H:%M') }}</td>
                         <td>{{ entry.transport }}</td>
                         <td>{{ entry.kms }}</td>
                         <td>{{ entry.co2 }}</td>
+                        <td>{{entry.id }}</td>
+                        <!-- adds a cell with a delete button for a table entry-->
+                        <td>
+                            <form method="POST" action="/delete_entry/{{entry.id}}" id="DeleteForm">
+                                <input type="hidden" name="entry_id" value="{{ entry.id }}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -104,6 +111,12 @@
         options: {
             responsive: true,
         },
+    });
+
+
+    // Adds datatable functionalty to the table
+    $(document).ready(function () {
+        $('#entry_table').DataTable();
     });
 </script>
 {% endblock %}

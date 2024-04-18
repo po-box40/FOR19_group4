@@ -48,11 +48,10 @@ efco2 = {
     "Motorbike": {"Petrol": 0.114},
     "Bicycle": {"No Fossil Fuel": 0},
     "Walk": {"No Fossil Fuel": 0},
-
-    'Ferry': {
-        'Passenger': {'Diesel':0.0187},
-        'Driver alone': {'Diesel':0.1295},
-        'Driver with passengers' : {'Diesel':0.1295}
+    "Ferry": {
+        "Passenger": {"Diesel": 0.0187},
+        "Driver alone": {"Diesel": 0.1295},
+        "Driver with passengers": {"Diesel": 0.1295},
     },
     "Train": {"Fossil fuel": 0.041, "Electric": 0.004},
     "Motorbike": {"Petrol": 0.114},
@@ -307,3 +306,13 @@ def new_entry_ferry():
     return render_template(
         "carbon_app/new_entry_ferry.html", title="New Entry Ferry", form=form
     )
+
+
+# route for deleting a transport entry
+@carbon_app.route("/carbon_app/delete_entry/<int:entry_id>", methods=["POST"])
+def delete_entry(entry_id):
+    entry = Transport.query.get_or_404(entry_id)
+    db.session.delete(entry)
+    db.session.commit()
+    flash("Your entry has been deleted!", "success")
+    return redirect(url_for("carbon_app.carbon_your_emissions"))
