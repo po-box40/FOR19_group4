@@ -156,8 +156,8 @@ def new_entry_bus():
         db.session.add(transport)
         db.session.commit()
 
-        return f"Total CO2 emissions for the bus journey: {co2}"
-
+        return redirect(url_for('carbon_app.carbon_your_emissions'))
+    
     return render_template(
         "carbon_app/new_entry_bus.html", title="New Entry Bus", form=form
     )
@@ -194,7 +194,7 @@ def new_entry_car():
         db.session.add(transport)
         db.session.commit()
 
-        return f"CO2 emissions: {co2}"
+        return redirect(url_for('carbon_app.carbon_your_emissions'))
 
     return render_template(
         "carbon_app/new_entry_car.html", title="New Entry Car", form=form
@@ -223,7 +223,7 @@ def new_entry_train():
         db.session.add(transport)
         db.session.commit()
 
-        return f"Total CO2 emissions for the train journey: {co2}"
+        return redirect(url_for('carbon_app.carbon_your_emissions'))
 
     return render_template(
         "carbon_app/new_entry_train.html", title="New Entry Train", form=form
@@ -253,7 +253,7 @@ def new_entry_plane():
         db.session.add(transport)
         db.session.commit()
 
-        return f"Total CO2 emissions for the {flight_type}: {co2}"
+        return redirect(url_for('carbon_app.carbon_your_emissions'))
 
     return render_template(
         "carbon_app/new_entry_plane.html", title="New Entry Plane", form=form
@@ -283,7 +283,7 @@ def new_entry_motorbike():
         db.session.add(transport)
         db.session.commit()
 
-        return f"Total CO2 emissions for the motorbike journey: {co2}"
+        return redirect(url_for('carbon_app.carbon_your_emissions'))
 
     return render_template(
         "carbon_app/new_entry_motorbike.html", title="New Entry Motorbike", form=form
@@ -313,7 +313,7 @@ def new_entry_walk():
         db.session.add(transport)
         db.session.commit()
 
-        return f"Total CO2 emissions for the walking tour: {co2}"
+        return redirect(url_for('carbon_app.carbon_your_emissions'))
 
     return render_template(
         "carbon_app/new_entry_walk.html", title="New Entry Walk", form=form
@@ -343,7 +343,7 @@ def new_entry_bicycle():
         db.session.add(transport)
         db.session.commit()
 
-        return f"Total CO2 emissions for the bicycle journey: {co2}"
+        return redirect(url_for('carbon_app.carbon_your_emissions'))
 
     return render_template(
         "carbon_app/new_entry_bicycle.html", title="New Entry Bicycle", form=form
@@ -396,7 +396,7 @@ def new_entry_ferry():
         db.session.add(transport)
         db.session.commit()
 
-        return f"Total CO2 emissions for the ferry journey: {co2}, CO2 emissions per passenger: {co2_per_passenger}"
+        return redirect(url_for('carbon_app.carbon_your_emissions'))
 
     return render_template(
         "carbon_app/new_entry_ferry.html", title="New Entry Ferry", form=form
