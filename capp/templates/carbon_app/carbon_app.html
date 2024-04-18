@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='carbon_app.css') }}">
+<!-- Header -->
+<section class="section_header_carbon_app d-flex">
+    <div class="container flex-grow-1">
+
+        <div class="header_carbon_app flex-1">
+            <h1 class="fw-bold mt-3" style="font-size:55px;"><span class="text-logo"> Carbon App</span></h1>
+            <div class="box">
+
+                <div class="d-flex flex-row-reverse">
+                    <p style="text-align:left;">
+                        Welcome to our newly developed carbon emissions calculator application! 
+                        Our aim is to assist both individuals and businesses in making well-informed choices regarding their carbon footprint and actively participating in efforts to diminish their environmental impact. 
+                        This user-friendly app offers tailored suggestions for decreasing emissions based on your particular lifestyle or business activities. 
+                        Utilizing a carbon footprint analysis methodology, we've curated comprehensive insights into various modes of transport, aiding users in understanding the greenhouse gas emissions associated with their travel choices. 
+                        By monitoring your carbon emissions and utilizing our app's personalized recommendations, you can initiate meaningful changes to reduce your ecological footprint and contribute to a more sustainable future. 
+                        Let's unite in our commitment to safeguarding our planet starting today!
+                   
+                    </div>
+                </div>
+
+                <div class="btn-section">
+                    <div class="btn btn-carbon-app" >
+                        <a href="{{url_for('carbon_app.carbon_calculator_home')}}" class="btn btn-lg mr-2 fw-bold">New entry</a>
+                    </div>
+                    <div class="btn btn-carbon-app">
+                        <a href="{{url_for('carbon_app.carbon_your_emissions')}}" class="btn btn-lg mr-2 fw-bold">Your emissions</a>
+                    </div>
+                    <div class="btn btn-carbon-app">
+                        <a href="{{url_for('methodology.methodology_home')}}" class="btn btn-lg mr-2 fw-bold">Methodology</a>
+                    </div>
+                    <div class="btn btn-carbon-app">
+                        <a href="#" class="btn btn-lg mr-2 fw-bold" , data-toggle="modal"
+                            data-target="#carbon_app_instructions">Instructions</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+</section>
+
+
+{% endblock content %}

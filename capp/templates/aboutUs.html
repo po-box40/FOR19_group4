@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='about_us.css') }}">
+<!-- Developers -->
+<section class="section_developers">
+  <div class="container">
+    <br>
+    <div id="developers_text">
+      <h1>About us</h1>
+      <div class="row">
+        <div class="col">
+          <p>
+            Our team, consisting of 7 developers, students at NHH - Norwegian School of Economics, has a shared passion
+            for
+            economics and IT. This semester, under the guidance of our teacher Mario Blázquez de Paz, we took the class
+            of
+            Green Digitalization and App Development, learning languages like HTML, CSS, Flask, Latex, Python, and
+            JavaScript.
+          </p>
+        </div>
+        <div class="col">
+          <p>
+            Our app, Greenify, aims to make a positive impact on the environment
+            by promoting sustainable practices.
+            We believe in the power of technology
+            to drive positive change. Our diverse team, with members from different backgrounds, brings unique
+            perspectives
+            to creatively address complex issues. Connect with us on Linkedin or visit our website to meet the team and
+            learn more about our commitment to building a sustainable future.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="developers_grid">
+      <div class="developer_box">
+        <img src="{{url_for('static', filename='image/dev_po.png')}}" alt="" class="dev_img">
+
+        <h3 class="dev_name"><br>Per Olav Hagen Hallingstad</h3>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque
+          dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia
+          reiciendis ex architecto voluptates soluta ab tempore facilis quisqu am cum.
+        </p>
+
+        <div class="container_buttons_developers">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29" viewBox="0 0 30 29" fill="none">
+            <path
+              d="M23.1875 0.5112H6.7545C3.51367 0.5112 0.885559 3.13931 0.885559 6.38014V22.8132C0.885559 26.054 3.51367 28.6821 6.7545 28.6821H23.1875C26.4295 28.6821 29.0565 26.054 29.0565 22.8132V6.38014C29.0565 3.13931 26.4295 0.5112 23.1875 0.5112ZM10.2759 22.8132H6.7545V9.90151H10.2759V22.8132ZM8.51518 8.41314C7.3813 8.41314 6.46105 7.48585 6.46105 6.34258C6.46105 5.19931 7.3813 4.27202 8.51518 4.27202C9.64906 4.27202 10.5693 5.19931 10.5693 6.34258C10.5693 7.48585 9.65024 8.41314 8.51518 8.41314ZM24.3613 22.8132H20.84V16.2353C20.84 12.2819 16.1448 12.5813 16.1448 16.2353V22.8132H12.6234V9.90151H16.1448V11.9732C17.7834 8.93783 24.3613 8.71363 24.3613 14.8795V22.8132Z"
+              fill="white" />
+          </svg>
+          <a class="btn_developers" href="#" target="_blank">Linkedin</a>
+        </div>
+      </div>
+      <div class="developer_box">
+
+        <img src="{{ url_for('static', filename='image/dev_flav.jpg') }}" alt="" class="dev_img">
+        <h3 class="dev_name"><br>Flavian Anton</h3>
+        <p> I am 21 years old in my third year at NHH. 
+
+        </p>
+        <div class="container_buttons_developers">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29" viewBox="0 0 30 29" fill="none">
+            <path
+              d="M23.1875 0.5112H6.7545C3.51367 0.5112 0.885559 3.13931 0.885559 6.38014V22.8132C0.885559 26.054 3.51367 28.6821 6.7545 28.6821H23.1875C26.4295 28.6821 29.0565 26.054 29.0565 22.8132V6.38014C29.0565 3.13931 26.4295 0.5112 23.1875 0.5112ZM10.2759 22.8132H6.7545V9.90151H10.2759V22.8132ZM8.51518 8.41314C7.3813 8.41314 6.46105 7.48585 6.46105 6.34258C6.46105 5.19931 7.3813 4.27202 8.51518 4.27202C9.64906 4.27202 10.5693 5.19931 10.5693 6.34258C10.5693 7.48585 9.65024 8.41314 8.51518 8.41314ZM24.3613 22.8132H20.84V16.2353C20.84 12.2819 16.1448 12.5813 16.1448 16.2353V22.8132H12.6234V9.90151H16.1448V11.9732C17.7834 8.93783 24.3613 8.71363 24.3613 14.8795V22.8132Z"
+              fill="white" />
+          </svg>
+          <a class="btn_developers" href="#" target="_blank">Linkedin</a>
+        </div>
+      </div>
+      <div class="developer_box">
+        <img src="{{url_for('static', filename='image/dev_auriane.jpg')}}" alt="" class="dev_img">
+        <h3 class="dev_name"><br>Auriane Chevalier</h3>
+        <p> I'm a 21-year-old from France. I love doing sports, mainly karate and horse riding, but I love testing
+          everything. I'm currently doing a double bachelor's degree in political science at Sciences Po Paris and
+          mathematics at Université Paris Cité. In the future, I would like to work in cybersecurity. I've already had
+          the opportunity to do an internship in this field at CERT-EU.
+        </p>
+        <div class="container_buttons_developers">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29" viewBox="0 0 30 29" fill="none">
+            <path
+              d="M23.1875 0.5112H6.7545C3.51367 0.5112 0.885559 3.13931 0.885559 6.38014V22.8132C0.885559 26.054 3.51367 28.6821 6.7545 28.6821H23.1875C26.4295 28.6821 29.0565 26.054 29.0565 22.8132V6.38014C29.0565 3.13931 26.4295 0.5112 23.1875 0.5112ZM10.2759 22.8132H6.7545V9.90151H10.2759V22.8132ZM8.51518 8.41314C7.3813 8.41314 6.46105 7.48585 6.46105 6.34258C6.46105 5.19931 7.3813 4.27202 8.51518 4.27202C9.64906 4.27202 10.5693 5.19931 10.5693 6.34258C10.5693 7.48585 9.65024 8.41314 8.51518 8.41314ZM24.3613 22.8132H20.84V16.2353C20.84 12.2819 16.1448 12.5813 16.1448 16.2353V22.8132H12.6234V9.90151H16.1448V11.9732C17.7834 8.93783 24.3613 8.71363 24.3613 14.8795V22.8132Z"
+              fill="white" />
+          </svg>
+          <a class="btn_developers" href="#" target="_blank">Linkedin</a>
+        </div>
+      </div>
+      <div class="developer_box">
+        <img src="{{url_for('static', filename='image/dev_julia.jpg')}}" alt="" class="dev_img">
+        <h3 class="dev_name"><br>Julia Gomon</h3>
+        <p> I am a 22 years old student from Ukraine, studying a double-degree CEMS Master in International Management
+          and Marketing at NHH and VSE, Prague. Previously obtained bachelor degrees in the Economics, Law and Film and
+          TV Production Management. Have an experience of working as a graphic designer and marketer. Love doing sports,
+          especially swimming and yoga.
+        </p>
+        <div class="container_buttons_developers">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29" viewBox="0 0 30 29" fill="none">
+            <path
+              d="M23.1875 0.5112H6.7545C3.51367 0.5112 0.885559 3.13931 0.885559 6.38014V22.8132C0.885559 26.054 3.51367 28.6821 6.7545 28.6821H23.1875C26.4295 28.6821 29.0565 26.054 29.0565 22.8132V6.38014C29.0565 3.13931 26.4295 0.5112 23.1875 0.5112ZM10.2759 22.8132H6.7545V9.90151H10.2759V22.8132ZM8.51518 8.41314C7.3813 8.41314 6.46105 7.48585 6.46105 6.34258C6.46105 5.19931 7.3813 4.27202 8.51518 4.27202C9.64906 4.27202 10.5693 5.19931 10.5693 6.34258C10.5693 7.48585 9.65024 8.41314 8.51518 8.41314ZM24.3613 22.8132H20.84V16.2353C20.84 12.2819 16.1448 12.5813 16.1448 16.2353V22.8132H12.6234V9.90151H16.1448V11.9732C17.7834 8.93783 24.3613 8.71363 24.3613 14.8795V22.8132Z"
+              fill="white" />
+          </svg>
+          <a class="btn_developers" href="#" target="_blank">Linkedin</a>
+        </div>
+      </div>
+      <div class="developer_box">
+        <img src="{{url_for('static', filename='image/dev_greg.jpg')}}" alt="" class="dev_img">
+        <h3 class="dev_name"><br>Grégoire Morneau</h3>
+        <p> I'm 22 years old, exchange student from France, and pursuing a Master in Business at the NHH and the
+          Burgundy School of Business. Passionnated by sports and especially football, I would eventually like to bind
+          my studies to this field of activity.
+        </p>
+        <div class="container_buttons_developers">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29" viewBox="0 0 30 29" fill="none">
+            <path
+              d="M23.1875 0.5112H6.7545C3.51367 0.5112 0.885559 3.13931 0.885559 6.38014V22.8132C0.885559 26.054 3.51367 28.6821 6.7545 28.6821H23.1875C26.4295 28.6821 29.0565 26.054 29.0565 22.8132V6.38014C29.0565 3.13931 26.4295 0.5112 23.1875 0.5112ZM10.2759 22.8132H6.7545V9.90151H10.2759V22.8132ZM8.51518 8.41314C7.3813 8.41314 6.46105 7.48585 6.46105 6.34258C6.46105 5.19931 7.3813 4.27202 8.51518 4.27202C9.64906 4.27202 10.5693 5.19931 10.5693 6.34258C10.5693 7.48585 9.65024 8.41314 8.51518 8.41314ZM24.3613 22.8132H20.84V16.2353C20.84 12.2819 16.1448 12.5813 16.1448 16.2353V22.8132H12.6234V9.90151H16.1448V11.9732C17.7834 8.93783 24.3613 8.71363 24.3613 14.8795V22.8132Z"
+              fill="white" />
+          </svg>
+          <a class="btn_developers" href="#" target="_blank">Linkedin</a>
+        </div>
+      </div>
+      <div class="developer_box">
+        <img src="{{url_for('static', filename='image/dev_hasan.jpg')}}" alt="" class="dev_img">
+        <h3 class="dev_name"><br>Hasan Askri</h3>
+        <p> At 26, from Norway, I revel in football, skiing, running, and martial arts and currently hold a Political
+          Science bachelor's from NTNU. I'm now pursuing a Master's in science in Finance at the Norwegian School of
+          Economics, whilst I'll be simultaneously diving into equity research with a full-time position at Kepler
+          Cheuvreux, focusing on shipping companies.
+        </p>
+        <div class="container_buttons_developers">
+          <div class="container_buttons_developers">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29" viewBox="0 0 30 29" fill="none">
+              <path
+                d="M23.1875 0.5112H6.7545C3.51367 0.5112 0.885559 3.13931 0.885559 6.38014V22.8132C0.885559 26.054 3.51367 28.6821 6.7545 28.6821H23.1875C26.4295 28.6821 29.0565 26.054 29.0565 22.8132V6.38014C29.0565 3.13931 26.4295 0.5112 23.1875 0.5112ZM10.2759 22.8132H6.7545V9.90151H10.2759V22.8132ZM8.51518 8.41314C7.3813 8.41314 6.46105 7.48585 6.46105 6.34258C6.46105 5.19931 7.3813 4.27202 8.51518 4.27202C9.64906 4.27202 10.5693 5.19931 10.5693 6.34258C10.5693 7.48585 9.65024 8.41314 8.51518 8.41314ZM24.3613 22.8132H20.84V16.2353C20.84 12.2819 16.1448 12.5813 16.1448 16.2353V22.8132H12.6234V9.90151H16.1448V11.9732C17.7834 8.93783 24.3613 8.71363 24.3613 14.8795V22.8132Z"
+                fill="white" />
+            </svg>
+            <a class="btn_developers" href="#" target="_blank">Linkedin</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+{% endblock content %}

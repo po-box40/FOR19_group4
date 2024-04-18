@@ -1,0 +1,110 @@
+/* Colors 
+Carbon App, section 1 (header, background): #2a4359
+Carbon App, section 1 (header, boxes): #6da6a6
+Carbon App, section 2 (header, background): #466fa6
+Carbon App, section 2 (header, boxes): #8badd9
+*/
+
+body {
+  background: #142C35;
+  color: #FFF;
+  height: 100%;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+}
+
+
+.btn-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.btn-box {
+  height: fit-content;
+
+}
+
+
+#btn-login {
+  width: 15rem;
+  height: 6rem;
+  background-color: #208b3aff;
+  border-radius: 1.6rem;
+  border-width: 0;
+  color: white;
+}
+
+#btn-login a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+
+}
+
+.btn-carbon-app {
+  background-color: white;
+  color: #208b3aff;
+  border: #208b3aff 4px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 1.1rem;
+  margin: 1%;
+}
+
+.transport ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+}
+
+#chart_grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #C2E890;
+  border-radius: 0.5rem;
+
+}
+
+.chart_box {
+  border-radius: 0.5rem;
+}
+
+#entry_table {
+  color: #FFF;
+  background: #C2E890;
+
+}
+
+#emissions_by_transport {
+  width: 50%;
+  height: 50%;
+}
+
+
+@media (max-width:768px) {
+  .header_carbon_app {
+    flex-direction: column;
+  }
+}

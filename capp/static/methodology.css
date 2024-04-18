@@ -1,0 +1,125 @@
+/* Colors 
+Methodology, section 1 (header, background): #2a4359
+Methodology, section 1 (header, boxes): #6da6a6
+Methodology, section 2 (methodology, background): #466fa6
+Methodology, section 2 (methodology, boxes): #8badd9
+*/
+
+/* Utilities  */
+body {
+  background: #142C35;
+  color: black;
+}
+
+.header h1 {
+  color: #FFF;
+  font-family: Outfit;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+}
+
+.header p {
+  color: #E6CF8B;
+  font-family: Outfit;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.header button {
+  width: 95%;
+  padding: 0.25rem;
+  border-radius: .5rem;
+  border: none;
+  background: #C2E890;
+}
+
+.header button a {
+  font-size: 1.15rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+
+
+
+.methodology {
+  display: block;
+  justify-content: center;
+  align-items: center;
+
+}
+
+p {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 18px;
+  text-align: left;
+  font-weight: bold;
+}
+
+ol {
+  font-size: 18px;
+}
+
+
+
+.header {
+
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+}
+
+.header .box {
+  flex: 1;
+  background: #fff1fcff;
+  color: black;
+  border-radius: 20px;
+  margin: 20px 10px;
+  padding: 15px 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.container_buttons_links_header {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Section methodology */
+
+
+.section_body_methodology {
+  flex: 1;
+  background: #D9D9D9;
+  color: #142C35;
+  border-radius: 1.25rem;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+@media (max-width:768px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .methodology {
+    flex-direction: column;
+  }
+}

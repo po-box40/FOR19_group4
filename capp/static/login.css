@@ -1,0 +1,64 @@
+body {
+    background: #142C35;
+}
+
+.container {
+    padding: 5rem;
+}
+
+#loginForm {
+    border-radius: 1.25rem;
+    background-color: #FFF;
+    font-family: Outfit;
+    padding: 2.5rem;
+}
+
+#loginForm h1 {
+    color: #142C35;
+    font-family: inherit;
+    font-size: 2.87463rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+#loginForm input {
+    border: 1px solid #142C35;
+    border-radius: 0;
+
+}
+
+#loginForm a {
+    text-decoration: none;
+    font-family: inherit;
+    color: #C2E890;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#loginForm p {
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    /* center the text */
+    text-align: center;
+}
+
+#loginForm button {
+    color: #FFF;
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    background: linear-gradient(90deg, #C2E890 0%, #142C35 100%);
+    border: none;
+    border-radius: 0;
+    width: 100%;
+
+}

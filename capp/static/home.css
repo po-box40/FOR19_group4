@@ -1,0 +1,96 @@
+/* Colors 
+Home, section 1 (header, background): #9fa7bf
+Home, section 1 (header, boxes): #568c63
+Home, section 2 (developers, background): #c5c8d9 
+Home, section 2 (developers, boxes): #49736f
+ */
+
+/* Utilities  */
+
+
+body {
+  font-family: Outfit, sans-serif;
+  background-color: #142C35;
+  line-height: normal;
+  color: #FFF;
+
+}
+
+.container {
+  margin: 0;
+  width: 100%;
+}
+
+#header_home {
+  margin: auto;
+  width: fit-content;
+}
+
+#header_home h1 {
+  color: #FFF;
+  font-family: Outfit;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+#header_home p {
+  color: #E6CF8B;
+  font-family: Outfit;
+  font-size: 2.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#header_home button {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background: #C2E890;
+}
+
+#header_home button a {
+  color: #142C35;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.home-illustration {
+  width: 100%;
+}
+
+#info_home {
+  background-image: url('/static/image/home_background.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+@media (max-width:768px) {
+  .header_home {
+    flex-direction: column;
+  }
+
+  .developers {
+    flex-direction: column;
+  }
+
+  .section_container_buttons_developers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

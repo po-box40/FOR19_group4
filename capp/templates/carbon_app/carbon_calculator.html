@@ -1,0 +1,223 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='carbon_app.css') }}">
+
+<!-- Header -->
+<section class="section_header_carbon_calculator d-flex">
+
+    <div class="container flex-row">
+        <section class="transport">
+            <h2>Choose you transport method</h2>
+            <div id="alert-box"></div>
+            <div class="row">
+                <ul>
+                    <div class="col-md-3">
+                        <li class="box">
+                            <a href="{{url_for('carbon_app.new_entry_bus')}}" class="btn btn-carbon-app">
+                                <h3>Bus</h3>
+                                <i class="fa-solid fa-bus fa-2xl"></i>
+                            </a>
+                        </li>
+                    </div>
+                    <div class="col-md-3">
+                        <li class="box">
+                            <a href="{{url_for('carbon_app.new_entry_train')}}" class="btn btn-carbon-app">
+                                <h3>Train</h3>
+                                <i class="fa-solid fa-train fa-2xl"></i>
+                            </a>
+                        </li>
+                    </div>
+                    <div class="col-md-3">
+                        <li class="box">
+                            <a href="{{url_for('carbon_app.new_entry_car')}}" class="btn btn-carbon-app">
+                                <h3>Car</h3>
+                                <i class="fa-solid fa-car fa-2xl"></i>
+                            </a>
+                        </li>
+                    </div>
+                    <div class="col-md-3">
+                        <li class="box">
+                            <a href="{{url_for('carbon_app.new_entry_plane')}}" class="btn btn-carbon-app">
+                                <h3>Plane</h3>
+                                <i class="fa-solid fa-plane fa-2xl"></i>
+                            </a>
+                        </li>
+                    </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <li class="box">
+                        <a href="{{url_for('carbon_app.new_entry_motorbike')}}" class="btn btn-carbon-app">
+                            <h3>Motorbike</h3>
+                            <i class="fa-solid fa-motorcycle fa-2xl"></i>
+                        </a>
+                    </li>
+                </div>
+                <div class="col-md-3">
+                    <li class="box">
+                        <a href="{{url_for('carbon_app.new_entry_ferry')}}" class="btn btn-carbon-app">
+                            <h3>Ferry</h3>
+                            <i class="fa-solid fa-ferry fa-2xl"></i>
+                        </a>
+                    </li>
+                </div>
+                <div class="col-md-3">
+                    <li class="box">
+                        <a href="{{url_for('carbon_app.new_entry_bicycle')}}" class="btn btn-carbon-app">
+                            <h3>Bicycle</h3>
+                            <i class="fa-solid fa-bicycle fa-2xl"></i>
+                        </a>
+                    </li>
+                </div>
+                <div class="col-md-3">
+                    <li class="box">
+                        <a href="{{url_for('carbon_app.new_entry_walk')}}" class="btn btn-carbon-app">
+                            <h3>Walk</h3>
+                            <i class="fa-solid fa-person-walking fa-2xl"></i>
+                        </a>
+                    </li>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </section>
+
+
+        <div class="modal fade" id="carbonCalculatorModal" tabindex="-1" aria-labelledby="carbonCalculatorModal"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Regster #kilometers driven </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="kilometers">Number of Kilometers Driven:</label>
+                                <input type="number" id="numKilometers" class="form-control" required value="0" min="0">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="calculate-btn" class="btn btn-primary">Calculate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <script>
+
+            var currentTransportMethod;
+
+            document.getElementById("calculate-btn").addEventListener("click", function () {
+                var transportMethod = document.getElementById("exampleModalLabel").textContent;
+                var kilometers = document.getElementById("numKilometers").value;
+                fetch("/calculate-carbon-footprint", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        transportMethod: currentTransportMethod,
+                        kilometers: kilometers
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        var carbonFootprint = data.carbonFootprint;
+                        // Store the returned integer in a variable or perform any other action with it
+                        // Display the returned integer in a bootstrap alert
+                        var alertDiv = document.createElement("div");
+                        alertDiv.classList.add("alert", "alert-success");
+                        alertDiv.textContent = `Your carbon footprint is ${carbonFootprint} kg CO2`;
+                        document.getElementById('alert-box').appendChild(alertDiv);
+
+
+
+                        // Clear the input field
+                        document.getElementById("numKilometers").value = "";
+
+                        // Close the modal
+                        $('#carbonCalculatorModal').modal('hide');
+
+                        // Remove the alert after 5 seconds
+                        setTimeout(function () {
+                            alertDiv.remove();
+                        }, 5000);
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+            });
+
+            const exampleModal = document.getElementById('carbonCalculatorModal')
+            if (exampleModal) {
+                exampleModal.addEventListener('show.bs.modal', event => {
+                    // Button that triggered the modal
+                    const button = event.relatedTarget
+                    // Extract info from data-bs-* attributes
+                    currentTransportMethod = button.getAttribute('data-bs-whatever')
+                    // If necessary, you could initiate an Ajax request here
+                    // and then do the updating in a callback.
+
+                    // Update the modal's content.
+                    const modalTitle = exampleModal.querySelector('.modal-title')
+                    // capitalize the first letter of the transport method
+                    capCurrentTransportMethod = currentTransportMethod.charAt(0).toUpperCase() + currentTransportMethod.slice(1);
+                    modalTitle.textContent = `Register #kilometers traveled with ${capCurrentTransportMethod}`
+
+                })
+            }
+
+
+
+        </script>
+        <script>
+
+        </script>
+
+
+</section>
+
+
+
+
+
+</div>
+
+
+
+
+<!-- End block-->
+
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+<!-- Header -->
+
+
+<div id="header_home" class="mx-5 mt-5">
+  <div class="row">
+    <div class="col-md-5">
+      <h1>Building the green future together</h1>
+
+      <p>Greenify is made to provide users with a tool to visualize carbon emissions, produced by transport.</p>
+      <div class="row">
+        <div class="col-sm-4">
+          <button class="btn"><a href="{{url_for('user.login')}}">Login</a></button>
+        </div>
+        <div class="col-sm-4">
+          <button class="btn"><a href="{{url_for('user.register')}}">Register</a></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 d-flex">
+      <div class="mx-auto mb-5">
+        <img class="home-illustration" src=" {{ url_for('static', filename='icons/Home-illustration.svg' ) }}"
+          alt="home-illustration">
+      </div>
+    </div>
+
+    <!-- Login and register button-->
+
+
+
+  </div>
+
+
+</div>
+
+<!-- Info section-->
+<div id="info_home">
+  <div>
+    <h2>Calculate</h2>
+    <p>Calculate your carbon emissions with our carbon calculator.</p>
+  </div>
+  <div>
+    <h2>Compare</h2>
+    <p>Compare your carbon emissions with other users.</p>
+  </div>
+  <div ">
+    <h2>Reduce</h2>
+    <p>Learn how to reduce your carbon emissions.</p>
+  </div>
+</div>
+
+
+
+
+</div>
+{% endblock %}

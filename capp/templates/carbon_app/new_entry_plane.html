@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='new_entry.css') }}">
+<section class="new_entry">
+  <div class="container">
+      <div class="box"></div>
+      <div class="box">   
+        <div class="h1 mb-3" style="text-align: center;">
+          <i class="fa-solid fa-plane"></i>
+        </div>
+        <h3>Plane CO2 Emissions Calculator</h3>
+        <p>
+          <ol style="text-align: left;">
+            <li>
+              Please enter the distance traveled (in kilometers).
+            </li>
+            <li>
+              Please select the type of flight.
+            </li>
+          </ol>
+        </p>
+          <form method="POST" action="">
+              {{ form.csrf_token }}
+              <fieldset class="form-group">
+
+                <div class="form-group">
+                    {{ form.kms.label(class="form-control-label") }}
+                    {% if form.kms.errors %}
+                        {{ form.kms(class="form-control form-control-lg is-invalid", placeholder="Enter distance in kilometers") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.kms.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.kms(class="form-control form-control-lg", placeholder="Enter distance in kilometers") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.flight_type.label(class="form-control-label") }}
+                    {% if form.flight_type.errors %}
+                        {{ form.flight_type(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.flight_type.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.flight_type(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+              </fieldset>
+              <br>
+              <div class="form-group">
+                {{ form.submit(class="btn_carbon_app_new_entry_main") }}
+              </div>
+          </form>
+      </div>
+      <div class="box"></div>
+  </div>
+</section>
+
+{% endblock %}

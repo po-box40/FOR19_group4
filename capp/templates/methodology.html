@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='methodology.css') }}">
+<!-- Header -->
+<section class="section_header_methodology">
+    <div class="container">
+        <div class="header">
+            <div class="col">
+                <h1> Methodology</h1>
+                <p> This is a summery of the formulas we used for the calculations.
+                    
+                </p>
+                <div class="container_buttons_links_header">
+                    <div class="col-sm-2">
+                        <button onclick="openPdfModal()">Paper</button>
+                    </div>
+                    
+                    <!-- PDF modal -->
+                    <div id="pdfModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closePdfModal()">&times;</span>
+                            <iframe id="pdfFrame" src="{{url_for('static', filename = 'Methodology_paper.pdf')}}" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-2"><button><a href="{{url_for('carbon_app.carbon_app_home')}}" class="btn">Carbon App</a></button></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Methodology -->
+<section class="section_body_methodology m-5 p-3">
+    <div class="container">
+
+        <div class="methodology">
+            <h1 "> Our numbers and formulas</h1>
+            <p>
+            </p>
+        </div>
+
+        <!--Enumerated list (table)-->
+        <div class=" methodology">
+                <div class="box_table">
+                    <body>
+                        <div class="formula-box">
+                            \[
+                            \text{General Formula}:
+                            \]
+                            \[
+                            e : \text{CO2 emissions per km}
+                            \]
+                            \[
+                            d : \text{number of kilometers travelled}
+                            \]
+                            \[
+                            \text{Formula for total emissions} : (e \times d)
+                            \]
+                        </div>
+                        <p> This is the genral formula for calculating the CO2 emissions. We multply the co2 equivalents with the number og km traveld. 
+
+                        </p>
+                    </body>
+                    
+                
+
+                </div>
+        </div>
+
+        <script>
+ // Function to open the PDF modal
+function openPdfModal() {
+    document.getElementById('pdfModal').style.display = 'block';
+}
+
+// Function to close the PDF modal
+function closePdfModal() {
+    document.getElementById('pdfModal').style.display = 'none';
+}
+        </script>
+    
+</div>
+</section>
+
+
+
+{% endblock content %}

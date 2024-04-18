@@ -1,0 +1,86 @@
+/* Utilities  */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap');
+
+
+
+
+body {
+  background: #142C35;
+  color: #FFF;
+}
+
+
+#developers_text p {
+  color: #FFF;
+  font-family: "Open Sans";
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.developers_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.developer_box {
+  border-radius: 2.27188rem;
+  background: linear-gradient(160deg, #C2E890 -6.04%, #1E492C 98.67%);
+  padding: 1rem;
+  margin: 1rem;
+  width: 100%;
+  justify-content: center;
+  display: block;
+  margin-left: 0;
+}
+
+.dev_name {
+  text-align: center;
+}
+
+.developers_box p {
+  text-align: left;
+}
+
+
+.developer_box a {
+  color: #FFF;
+  font-family: "Open Sans";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-decoration: none;
+  justify-content: center;
+}
+
+.dev_img {
+  width: 90%;
+  border-radius: 40%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Section developers */
+.section_developers {}
+
+
+@media (max-width:768px) {
+  .header_about_us {
+    flex-direction: column;
+  }
+
+  .developers {
+    flex-direction: column;
+  }
+
+  .container_buttons_developers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
