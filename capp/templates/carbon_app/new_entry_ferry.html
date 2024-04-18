@@ -4,12 +4,12 @@
 <section class="new_entry">
   <div class="container">
       <div class="box"></div>
-      <div class="box">   
-        <div class="h1 mb-3" style="text-align: center;">
-          <i class="fa-solid fa-ship"></i>
-        </div>
+      <div id="new_entry_grid" class="box">   
+        <div class="icon_box">
+            <img class="transport_icon" src="{{ url_for('static', filename='icons/transport_ferry.svg') }}" alt="">
+          </div>
+        <div id="instruction_box">
         <h3>Ferry CO2 Emissions Calculator</h3>
-        <p>
           <ol style="text-align: left;">
             <li>
                 Please enter the distance traveled (in kilometers).
@@ -21,8 +21,8 @@
              Please enter the number of additional passengers.
             </li>
           </ol>
-        </p>
-          <form method="POST" action="">
+        </div>
+          <form id="transportForm" method="POST" action="">
               {{ form.csrf_token }}
               <fieldset class="form-group">
 

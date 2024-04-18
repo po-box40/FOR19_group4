@@ -20,6 +20,22 @@ body {
 
 }
 
+.flashes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  background-color: #C2E890;
+  padding: 5rem;
+  margin: 2rem 2rem;
+  color: #FFF;
+}
+
+.flashes li {
+  margin: 2rem 2rem;
+  color: #FFF;
+  border-radius: 2rem;
+}
 
 .btn-section {
   display: flex;
@@ -33,22 +49,14 @@ body {
 
 }
 
-
-#btn-login {
-  width: 15rem;
-  height: 6rem;
-  background-color: #208b3aff;
-  border-radius: 1.6rem;
-  border-width: 0;
-  color: white;
-}
-
-#btn-login a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
+.btn-box2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 
 }
+
 
 .btn-carbon-app {
   background-color: white;
@@ -61,6 +69,23 @@ body {
   height: fit-content;
   border-radius: 1.1rem;
   margin: 1%;
+}
+
+.btn-nice {
+  margin-top: 2.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  background: linear-gradient(90deg, #C2E890 0%, #124914 100%);
+  color: #FFF;
+}
+
+.btn-nice2 {
+  margin-top: 2.5rem;
+  padding: 1rem 2rem;
+  border: none;
+  background: linear-gradient(90deg, #C2E890 0%, #124914 100%);
+  color: #FFF;
+  width: 50%;
 }
 
 #login-button {
@@ -83,7 +108,6 @@ body {
   display: grid;
   grid-template-columns: auto auto;
   gap: 1rem;
-  margin: 1rem;
 }
 
 .chart {

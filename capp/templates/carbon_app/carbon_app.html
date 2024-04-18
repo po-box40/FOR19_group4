@@ -3,6 +3,23 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='carbon_app.css') }}">
 <!-- Header -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    <script>
+        setTimeout(function() {
+            var flashes = document.querySelector('.flashes');
+            if (flashes) {
+                flashes.remove();
+            }
+        }, 2000);
+    </script>
+{% endif %}
+{% endwith %}
 <section class="section_header_carbon_app d-flex">
     <div class="container flex-grow-1">
 

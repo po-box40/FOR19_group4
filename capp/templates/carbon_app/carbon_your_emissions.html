@@ -7,118 +7,131 @@
 <div class="col"></div>
 
 <div class="container">
-
-    <div id="chart_grid">
-        <div class="chart_box">
-            <canvas id="emissions_by_transport" class="chart"></canvas>
-        </div>
-        <div class="chart_box">
-            <canvas id="emissions_over_time" class="chart"></canvas>
-        </div>
-    </div>
-    <div class="row mt-2">
+    <div class="row">
         <div class="col-md-12">
-            <h2 class="text-center"> Your database entries </h2>
-            <table class="table table-striped" id="entry_table">
-                <thead>
-                    <tr>
-                        <th scope="col">Date</th>
-                        <th scope="col">Transport type</th>
-                        <th scope="col">Kms</th>
-                        <th scope="col">CO2 emissions in kg</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for entry in db_entries %}
-                    <tr>
-                        <td>{{ entry.date.strftime('%Y-%m-%d %H:%M') }}</td>
-                        <td>{{ entry.transport }}</td>
-                        <td>{{ entry.kms }}</td>
-                        <td>{{ entry.co2 }}</td>
-                        <td>{{entry.id }}</td>
-                        <!-- adds a cell with a delete button for a table entry-->
-                        <td>
-                            <form method="POST" action="/delete_entry/{{entry.id}}" id="DeleteForm">
-                                <input type="hidden" name="entry_id" value="{{ entry.id }}">
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            <h1 class="text-center">Your emissions charts</h1>
         </div>
+        <div id="chart_grid">
+            <div class="chart_box">
+                <canvas id="emissions_by_transport" class="chart"></canvas>
+            </div>
+            <div class="chart_box">
+                <canvas id="emissions_over_time" class="chart"></canvas>
+            </div>
+        </div>
+
+        <div class="row btn-box2">
+
+            <a class="btn btn-nice2" href="{{url_for('carbon_app.carbon_calculator_home')}}">New entry</a>
+
+
+        </div>
+
+
+
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <h2 class="text-center"> Your database entries </h2>
+                <table class="table table-striped" id="entry_table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Transport type</th>
+                            <th scope="col">Kms</th>
+                            <th scope="col">CO2 emissions in kg</th>
+                            <th scope="col"> Delete entry</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in db_entries %}
+                        <tr>
+                            <td>{{ entry.date.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td>{{ entry.transport }}</td>
+                            <td>{{ entry.kms }}</td>
+                            <td>{{ entry.co2 }}</td>
+                            <!-- adds a cell with a delete button for a table entry-->
+                            <td>
+                                <form method="POST" action="/delete_entry/{{entry.id}}" id="DeleteForm">
+                                    <input type="hidden" name="entry_id" value="{{ entry.id }}">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
     </div>
 
 
-</div>
 
 
 
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Get the JSON data from the backend
+        let transport_emissions_json = JSON.parse({{ transport_emissions_json | tojson | safe }});
+        // Extract the necessary data for the chart
+        const labels = transport_emissions_json.map(item => item.transport);
+        const values = transport_emissions_json.map(item => item.total);
+
+        // Create the donut chart
+        const ctx = document.getElementById('emissions_by_transport').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels,
+                datasets: [{
+                    data: values,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                    ],
+                }],
+            },
+            options: {
+                responsive: true,
+            },
+        });
 
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        // Get the JSON data from the backend
+        let emissions_over_time_json = JSON.parse({{ emissions_over_time_json | tojson | safe }});
+        // Extract the necessary data for the chart
+        const labels_time = emissions_over_time_json.map(item => item.date);
+        const values_time = emissions_over_time_json.map(item => item.total);
 
-<script>
-    // Get the JSON data from the backend
-    let transport_emissions_json = JSON.parse({{ transport_emissions_json | tojson | safe }});
-    // Extract the necessary data for the chart
-    const labels = transport_emissions_json.map(item => item.transport);
-    const values = transport_emissions_json.map(item => item.total);
-
-    // Create the donut chart
-    const ctx = document.getElementById('emissions_by_transport').getContext('2d');
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: values,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.7)',
-                    'rgba(54, 162, 235, 0.7)',
-                    'rgba(255, 206, 86, 0.7)',
-                    'rgba(75, 192, 192, 0.7)',
-                    'rgba(153, 102, 255, 0.7)',
-                    'rgba(255, 159, 64, 0.7)',
-                ],
-            }],
-        },
-        options: {
-            responsive: true,
-        },
-    });
+        // Create the line chart
+        const ctx2 = document.getElementById('emissions_over_time').getContext('2d');
+        new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: labels_time,
+                datasets: [{
+                    label: 'Emissions over time',
+                    data: values_time,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                }],
+            },
+            options: {
+                responsive: true,
+            },
+        });
 
 
-    // Get the JSON data from the backend
-    let emissions_over_time_json = JSON.parse({{ emissions_over_time_json | tojson | safe }});
-    // Extract the necessary data for the chart
-    const labels_time = emissions_over_time_json.map(item => item.date);
-    const values_time = emissions_over_time_json.map(item => item.total);
-
-    // Create the line chart
-    const ctx2 = document.getElementById('emissions_over_time').getContext('2d');
-    new Chart(ctx2, {
-        type: 'line',
-        data: {
-            labels: labels_time,
-            datasets: [{
-                label: 'Emissions over time',
-                data: values_time,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1,
-            }],
-        },
-        options: {
-            responsive: true,
-        },
-    });
-
-
-    // Adds datatable functionalty to the table
-    $(document).ready(function () {
-        $('#entry_table').DataTable();
-    });
-</script>
-{% endblock %}
+        // Adds datatable functionalty to the table
+        $(document).ready(function () {
+            $('#entry_table').DataTable();
+        });
+    </script>
+    {% endblock %}
