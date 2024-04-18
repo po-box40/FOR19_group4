@@ -1,8 +1,56 @@
+body {
+    background: #142C35;
+}
+
+
+
+#new_entry_grid {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 1rem;
+    padding: 1rem;
+    margin: auto;
+    justify-content: center;
+    background: #FFF;
+    width: fit-content;
+    border-radius: 0.5rem;
+}
+
+.icon_box {
+    text-align: center;
+}
+
+#instruction_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+
+#transportForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+
+.transport_icon {
+    width: 4.4375rem;
+    height: 4.4375rem;
+    margin: 0.625rem;
+
+}
+
 .btn_carbon_app_new_entry_main {
     display: inline-block;
-    padding: 1.25rem;
+    padding: 0.5rem 4rem;
     font-size: 1.25rem;
-    border-radius: 5px;
+    border-radius: 1.4rem;
     border: none;
     cursor: pointer;
     background: linear-gradient(90deg, #C2E890 0%, #142C35 100%);

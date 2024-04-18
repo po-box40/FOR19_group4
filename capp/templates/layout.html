@@ -22,9 +22,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
 
-   <!-- Matjax -->
-   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!-- Matjax -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
 
@@ -45,17 +45,18 @@
 
 <body>
   <section id="section_carbon_app_navbar" class="flex-1">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-dark navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid ms-5">
-        <a class="navbar-brand" href="{{u}}"><svg xmlns="http://www.w3.org/2000/svg" width="71" height="97"
-            viewBox="0 0 71 97" fill="none">
+        <a class="navbar-brand" href="{{url_for('home.home_home')}}"><svg xmlns="http://www.w3.org/2000/svg" width="71"
+            height="97" viewBox="0 0 71 97" fill="none">
             <path
               d="M55.7857 1.7259V7.79122C54.486 6.65716 53.0844 5.61229 51.568 4.69485C47.2994 2.08268 42.5465 0.655546 37.3349 0.400701C37.1947 0.400701 37.0546 0.400701 36.9271 0.387958C36.4939 0.375216 36.0734 0.349731 35.6402 0.349731C35.5892 0.349731 35.551 0.349731 35.5 0.349731C35.449 0.349731 35.4108 0.349731 35.3598 0.349731C34.9266 0.349731 34.4934 0.375216 34.0729 0.387958C33.9327 0.387958 33.7925 0.387958 33.6651 0.400701C28.4535 0.655546 23.7006 2.08268 19.4192 4.69485C17.9029 5.62504 16.514 6.65716 15.2015 7.79122L15.2015 1.7259L0 1.7259L0 65.2462C0 71.6046 1.4781 77.1475 4.42157 81.8876C7.36504 86.6277 11.4681 90.3357 16.7179 92.9989C21.9677 95.662 28.0458 96.9999 34.9521 96.9999C35.1432 96.9999 35.3216 96.9999 35.5 96.9999C35.6911 96.9999 35.8695 96.9999 36.0479 96.9999C42.9542 96.9999 49.0323 95.662 54.2821 92.9989C59.5319 90.323 63.6222 86.6277 66.5784 81.8876C69.5219 77.1475 71 71.6046 71 65.2462L71 1.7259L55.8112 1.7259H55.7857ZM35.5 14.9269C35.5 14.9269 57.748 32.2691 35.5255 52.0707C13.1883 32.3966 35.5 14.9269 35.5 14.9269ZM6.49856 10.9513H8.40991L8.40991 21.1451H6.49856L6.49856 10.9513ZM6.49856 31.339H8.40991L8.40991 41.5328H6.49856L6.49856 31.339ZM6.49856 51.7266H8.40991L8.40991 61.9204H6.49856L6.49856 51.7266ZM12.0415 81.671C9.78607 78.8932 8.19329 75.7331 7.28859 72.2799L9.13622 71.7957C9.96447 74.9813 11.4426 77.8993 13.5196 80.4605L12.0287 81.671H12.0415ZM30.4286 90.8837C26.848 90.7435 23.4203 89.8643 20.2347 88.2587L21.0885 86.5513C24.0192 88.0294 27.192 88.8449 30.4923 88.9723L30.4158 90.8837H30.4286ZM40.6861 90.8837L40.6097 88.9723C44.0373 88.8449 47.2102 88.0676 50.0389 86.6659L50.8927 88.3734C47.8218 89.9025 44.3941 90.7435 40.6861 90.8837ZM55.7857 65.2589C55.7857 70.5724 54.0528 74.7647 50.5869 77.8483C49.4273 78.6893 48.2168 79.4156 46.9553 80.04C43.757 81.5945 39.9216 82.41 35.4873 82.512C31.0529 82.4228 27.2303 81.6073 24.0192 80.04C22.7577 79.4283 21.5472 78.702 20.3877 77.8483C16.9218 74.7647 15.1888 70.5724 15.1888 65.2589L15.1888 59.1808C16.4885 60.3277 17.8902 61.3725 19.4065 62.29C23.7006 64.9149 28.4663 66.342 33.7033 66.5841C33.7925 66.5841 33.869 66.5841 33.9582 66.5841C34.4169 66.5969 34.8884 66.6223 35.3598 66.6223C35.4108 66.6223 35.449 66.6223 35.5 66.6223C35.551 66.6223 35.5892 66.6223 35.6402 66.6223C36.1116 66.6223 36.5704 66.5969 37.0418 66.5841C37.131 66.5841 37.2075 66.5841 37.2967 66.5841C42.5337 66.342 47.2994 64.9149 51.5935 62.29C53.1098 61.3725 54.4987 60.3149 55.8112 59.1808V65.2589H55.7857ZM59.0095 81.6582L57.4932 80.4859C59.4555 77.9375 60.9336 74.9176 61.7873 71.732L63.635 72.2289C62.7175 75.6566 61.1247 78.9186 59.0095 81.6582ZM64.4887 61.8567H62.5773V51.6629H64.4887V61.8567ZM64.4887 41.4691H62.5773V31.2753H64.4887V41.4691ZM64.4887 21.0814H62.5773V10.8876H64.4887V21.0814Z"
               fill="#C2E890" />
           </svg></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-light navbar-toggler" style="color: #FFF; " type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-light navbar-toggler-icon" style="color: #FFF;"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
