@@ -8,6 +8,7 @@ Carbon App, section 2 (header, boxes): #8badd9
 body {
   background: #142C35;
   color: #FFF;
+  height: 100%;
 }
 
 .box {

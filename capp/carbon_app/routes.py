@@ -76,7 +76,6 @@ def carbon_calculator_home():
 @carbon_app.route("/carbon_app/carbon_your_emissions", methods=["GET", "POST"])
 def carbon_your_emissions():
     # current user for testing
-    current_user = User.query.filter_by(username="test1").first()
 
     # database entries for the current user
     db_entries = (
@@ -145,6 +144,18 @@ def new_entry_bus():
         co2 = float(kms) * efco2["Bus"][fuel]
         co2 = round(co2, 4)
 
+        # Create a new Transport object and save it to the database
+        transport = Transport(
+            transport="Bus",
+            kms=kms,
+            fuel=fuel,
+            co2=co2,
+            total=total_co2_emissions,
+            author=current_user,
+        )
+        db.session.add(transport)
+        db.session.commit()
+
         return f"Total CO2 emissions for the bus journey: {co2}"
 
     return render_template(
@@ -171,6 +182,18 @@ def new_entry_car():
 
         co2 = round(co2, 4)
 
+        # Create a new Transport object and save it to the database
+        transport = Transport(
+            transport="Car",
+            kms=kms,
+            fuel=fuel,
+            co2=co2,
+            total=co2,
+            author=current_user,
+        )
+        db.session.add(transport)
+        db.session.commit()
+
         return f"CO2 emissions: {co2}"
 
     return render_template(
@@ -187,6 +210,18 @@ def new_entry_train():
 
         co2 = float(kms) * efco2["Train"][fuel]
         co2 = round(co2, 4)
+
+        # Create a new Transport object and save it to the database
+        transport = Transport(
+            transport="Train",
+            kms=kms,
+            fuel=fuel,
+            co2=co2,
+            total=co2,
+            author=current_user,
+        )
+        db.session.add(transport)
+        db.session.commit()
 
         return f"Total CO2 emissions for the train journey: {co2}"
 
@@ -206,6 +241,18 @@ def new_entry_plane():
 
         co2 = round(co2, 4)
 
+        # Create a new Transport object and save it to the database
+        transport = Transport(
+            transport="Plane",
+            kms=kms,
+            fuel=flight_type,
+            co2=co2,
+            total=co2,
+            author=current_user,
+        )
+        db.session.add(transport)
+        db.session.commit()
+
         return f"Total CO2 emissions for the {flight_type}: {co2}"
 
     return render_template(
@@ -223,6 +270,18 @@ def new_entry_motorbike():
         co2 = float(kms) * efco2["Motorbike"][fuel]
 
         co2 = round(co2, 4)
+
+        # Create a new Transport object and save it to the database
+        transport = Transport(
+            transport="Motorbike",
+            kms=kms,
+            fuel=fuel,
+            co2=co2,
+            total=co2,
+            author=current_user,
+        )
+        db.session.add(transport)
+        db.session.commit()
 
         return f"Total CO2 emissions for the motorbike journey: {co2}"
 
@@ -242,6 +301,18 @@ def new_entry_walk():
 
         co2 = round(co2, 4)
 
+        # Create a new Transport object and save it to the database
+        transport = Transport(
+            transport="Walk",
+            kms=kms,
+            fuel=fuel,
+            co2=co2,
+            total=co2,
+            author=current_user,
+        )
+        db.session.add(transport)
+        db.session.commit()
+
         return f"Total CO2 emissions for the walking tour: {co2}"
 
     return render_template(
@@ -259,6 +330,18 @@ def new_entry_bicycle():
         co2 = float(kms) * efco2["Bicycle"][fuel]
 
         co2 = round(co2, 4)
+
+        # Create a new Transport object and save it to the database
+        transport = Transport(
+            transport="Bicycle",
+            kms=kms,
+            fuel=fuel,
+            co2=co2,
+            total=co2,
+            author=current_user,
+        )
+        db.session.add(transport)
+        db.session.commit()
 
         return f"Total CO2 emissions for the bicycle journey: {co2}"
 
@@ -301,6 +384,18 @@ def new_entry_ferry():
             co2_per_passenger = co2 / P
             co2_per_passenger = round(co2_per_passenger, 4)
 
+        # Create a new Transport object and save it to the database
+        transport = Transport(
+            transport="Ferry",
+            kms=kms,
+            fuel=travel_option,
+            co2=co2,
+            total=co2,
+            author=current_user,
+        )
+        db.session.add(transport)
+        db.session.commit()
+
         return f"Total CO2 emissions for the ferry journey: {co2}, CO2 emissions per passenger: {co2_per_passenger}"
 
     return render_template(
@@ -309,7 +404,7 @@ def new_entry_ferry():
 
 
 # route for deleting a transport entry
-@carbon_app.route("/carbon_app/delete_entry/<int:entry_id>", methods=["POST"])
+@carbon_app.route("/delete_entry/<int:entry_id>", methods=["POST"])
 def delete_entry(entry_id):
     entry = Transport.query.get_or_404(entry_id)
     db.session.delete(entry)
