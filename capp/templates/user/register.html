@@ -1,16 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
 
 <section class="register_section_css">
     <div class="container">
             <div class="box">
 
             </div>
-            <div class="box">
-                <form method="POST" action="">
+            <div class="background-box">
+                <form id="registerForm "method="POST" action="">
                     {{ form.hidden_tag() }}
                     <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">Register</legend>
+                        <h1 class="form-title">Register<h1>
                         <div class="form-group">
                             {{ form.username.label(class="form-control-label") }}
                             {% if form.username.errors %}
@@ -69,11 +70,8 @@
                         {{ form.submit(class="btn btn-outline-info") }}
                     </div>
                 </form>
-                </br>
-                <div class="border-top pt-3">
-                    <small>
-                        Already Have An Account? <a class="ml-5" href="{{ url_for('user.login') }}">Sign In</a>
-                    </small>
+                <div class="pt-3">
+                        Already Have An Account? <a id="sign-in-link" class="ml-5" href="{{ url_for('user.login') }}">Sign In</a>
                 </div>
 
             </div>
