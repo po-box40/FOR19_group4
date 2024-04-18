@@ -20,6 +20,7 @@ def register():
       return redirect(url_for('user.login'))
   return render_template('user/register.html', title='register', form=form)
 
+
 @user.route('/login', methods=['GET','POST'])
 def login():
   form = LoginForm()
@@ -31,7 +32,7 @@ def login():
         login_user(user, remember=form.remember.data)
         next_page = request.args.get('next')
         flash('You have logged in! Now, you can start to use our Carbon App!', 'success')
-        return redirect(next_page) if next_page else redirect(url_for('home.home_home'))
+        return redirect(url_for('carbon_app.carbon_app_home'))
     else:
         flash('Login Unsuccessful. Please check email and password!', 'danger') 
   return render_template('user/login.html', title='login', form=form)
