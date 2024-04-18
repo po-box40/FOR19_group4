@@ -1,29 +1,28 @@
 {% extends "layout.html" %}
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='new_entry.css') }}">
-<section class="new_entry">
+<section class="new_entry mx-auto">
   <div class="container">
-      <div class="box"></div>
-      <div class="box">   
-        <div class="h1 mb-3">
-          <i class="fa-solid fa-bus"></i>
-        </div>
-        <h3>Bus CO2 Emissions Calculator</h3>
-        <p>
-          <ol style="text-align: left;">
-            <li>
-              Please enter the number of kilometers.
-            </li>
-            <li>
-              Please select the fuel type.
-            </li>
-          </ol>
-        </p>
-        <form method="POST" action="">
-          {{ form.csrf_token }}
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
+    <div id="new_entry_grid"class="box ">
+      <div class="h1 mb-3 icon_box">
+      <img class="transport_icon" src="{{ url_for('static', filename='icons/bus-2.svg') }}"></img>
+      </div>
+      <div id="instruction_box">
+      <h3>Bus CO2 Emissions Calculator</h3>
+      <p>
+        <ol style="text-align: left;">
+          <li>
+            Please enter the number of kilometers.
+          </li>
+          <li>
+            Please select the fuel type.
+          </li>
+        </ol>
+      </p>
+      </div>
+      <form id="transportForm" method="POST" action="">
+        {{ form.csrf_token }}
+        <div class="form-group">
           {{ form.kms.label(class="form-control-label") }}
           {% if form.kms.errors %}
             {{ form.kms(class="form-control form-control-lg is-invalid", placeholder="Enter kilometers") }}
@@ -35,13 +34,10 @@
           {% else %}
             {{ form.kms(class="form-control form-control-lg", placeholder="Enter kilometers") }}
           {% endif %}
-              </div>
-            </div>
-            <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-               {{ form.fuel_type.label(class="form-control-label") }}
-            {% if form.fuel_type.errors %}
+        </div>
+        <div class="form-group">
+          {{ form.fuel_type.label(class="form-control-label") }}
+          {% if form.fuel_type.errors %}
             {{ form.fuel_type(class="form-control form-control-lg is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.fuel_type.errors %}
@@ -51,17 +47,14 @@
           {% else %}
             {{ form.fuel_type(class="form-control form-control-lg") }}
           {% endif %}
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="form-group col-md-10 mt-2 mb-5">
-            {{ form.submit(class="btn_carbon_app_new_entry_main") }}
-          </div>
-        </form>
-      </div>
-      <div class="box"></div>
+        </div>
+        <br>
+        <div class="form-group">
+          {{ form.submit(class="btn_carbon_app_new_entry_main") }}
+        </div>
+      </form>
+    </div>
   </div>
-</section>  
+</section>
 
-{% endblock content %}
+{% endblock %}

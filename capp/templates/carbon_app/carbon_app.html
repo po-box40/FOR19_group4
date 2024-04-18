@@ -3,6 +3,23 @@
 
 <link rel="stylesheet" href="{{ url_for('static', filename='carbon_app.css') }}">
 <!-- Header -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <ul class="flashes">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    <script>
+        setTimeout(function() {
+            var flashes = document.querySelector('.flashes');
+            if (flashes) {
+                flashes.remove();
+            }
+        }, 2000);
+    </script>
+{% endif %}
+{% endwith %}
 <section class="section_header_carbon_app d-flex">
     <div class="container flex-grow-1">
 
@@ -21,8 +38,10 @@
                    
                     </div>
                 </div>
-
+                <!-- If block that checks if the user is logged in-->
+                
                 <div class="btn-section">
+                    {% if current_user.is_authenticated %}
                     <div class="btn btn-carbon-app" >
                         <a href="{{url_for('carbon_app.carbon_calculator_home')}}" class="btn btn-lg mr-2 fw-bold">New entry</a>
                     </div>
@@ -36,6 +55,13 @@
                         <a href="#" class="btn btn-lg mr-2 fw-bold" , data-toggle="modal"
                             data-target="#carbon_app_instructions">Instructions</a>
                     </div>
+                    {% else %}
+                    <div  class="btn">
+                        <a href="{{url_for('user.login')}}" id="login-button" class="btn btn-lg mr-2 fw-bold">Login</a>
+                    </div>
+                    {% endif %}
+
+
                 </div>
 
             </div>
