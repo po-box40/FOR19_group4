@@ -1,2 +1,16 @@
-__pycache__/
 capp/__pycache__/
+.venv/
+.gitignore
+capp/__pycache__/__init__.cpython-39.pyc
+capp/aboutUs/__pycache__/__init__.cpython-39.pyc
+capp/aboutUs/__pycache__/routes.cpython-39.pyc
+capp/carbon_app/__pycache__/__init__.cpython-39.pyc
+capp/carbon_app/__pycache__/forms.cpython-39.pyc
+capp/carbon_app/__pycache__/routes.cpython-39.pyc
+capp/home/__pycache__/__init__.cpython-39.pyc
+capp/home/__pycache__/routes.cpython-39.pyc
+capp/methodology/__pycache__/__init__.cpython-39.pyc
+capp/methodology/__pycache__/routes.cpython-39.pyc
+capp/user/__pycache__/__init__.cpython-39.pyc
+capp/user/__pycache__/forms.cpython-39.pyc
+capp/user/__pycache__/routes.cpython-39.pyc
