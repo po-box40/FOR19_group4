@@ -8,13 +8,24 @@ import os
 application = Flask(__name__)
 
 # Configring for AWS, secret key and database
-application.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
-DBVAR = f"postgresql://{os.environ.get('RDS_USERNAME')}:{os.environ.get('RDS_PASSWORD')}@{os.environ.get('RDS_HOSTNAME')}/{os.environ.get('RDS_DB_NAME')}"
+# application.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+
+# secret key for the database
+application.config["SECRET_KEY"] = "A@RrwCo@4A@Kow@8J&z8c8hvmN28"
+
+
+""" DBVAR = f"postgresql://{os.environ.get('RDS_USERNAME')}:{os.environ.get('RDS_PASSWORD')}@{os.environ.get('RDS_HOSTNAME')}/{os.environ.get('RDS_DB_NAME')}"
 application.config["SQLALCHEMY_DATABASE_URI"] = DBVAR
 application.config["SQLALCHEMY_BINDS"] = {
     "transport": DBVAR,
 }
-application.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+application.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False """
+
+# set up local database
+application.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///user.db"
+application.config["SQLALCHEMY_BINDS"] = {
+    "transport": "sqlite:///transport.db",
+}
 
 
 # Create SQLAlchemy instance

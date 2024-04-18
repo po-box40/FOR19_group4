@@ -10,12 +10,16 @@
 
       <p>Greenify is made to provide users with a tool to visualize carbon emissions, produced by transport.</p>
       <div class="row">
+        <!-- Check if user is not logged in-->
+        {% if not current_user.is_authenticated %}
         <div class="col-sm-4">
           <button class="btn"><a href="{{url_for('user.login')}}">Login</a></button>
         </div>
         <div class="col-sm-4">
           <button class="btn"><a href="{{url_for('user.register')}}">Register</a></button>
         </div>
+        {% endif %}
+
       </div>
     </div>
     <div class="col-md-7 d-flex">
@@ -30,11 +34,6 @@
 
 
   </div>
-
-
-</div>
-
-<!-- Info section-->
 <div id="info_home">
   <div>
     <h2>Calculate</h2>
@@ -44,11 +43,16 @@
     <h2>Compare</h2>
     <p>Compare your carbon emissions with other users.</p>
   </div>
-  <div ">
+  <div>
     <h2>Reduce</h2>
     <p>Learn how to reduce your carbon emissions.</p>
   </div>
 </div>
+
+</div>
+
+<!-- Info section-->
+
 
 
 
