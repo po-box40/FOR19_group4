@@ -10,7 +10,6 @@ application = Flask(__name__)
 # Configring for AWS, secret key and database
 application.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 DBVAR = f"postgresql://{os.environ.get('RDS_USERNAME')}:{os.environ.get('RDS_PASSWORD')}@{os.environ.get('RDS_HOSTNAME')}/{os.environ.get('RDS_DB_NAME')}"
-DBVAR = "postgresql://username:password@endpoint:5432//ebdb"
 application.config["SQLALCHEMY_DATABASE_URI"] = DBVAR
 application.config["SQLALCHEMY_BINDS"] = {
     "transport": DBVAR,
