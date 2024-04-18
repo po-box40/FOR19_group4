@@ -63,6 +63,15 @@ body {
   margin: 1%;
 }
 
+#login-button {
+
+  padding: 1rem 2rem;
+  border: none;
+  background: linear-gradient(90deg, #C2E890 0%, #124914 100%);
+  color: #FFF;
+
+}
+
 .transport ul {
   display: flex;
   justify-content: space-around;

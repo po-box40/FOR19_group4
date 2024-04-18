@@ -6,24 +6,30 @@ body {
     padding: 5rem;
 }
 
-#loginForm {
+.background-box {
+    background-color: #FFF;
+    padding: 3rem;
+    border-radius: 0.75rem;
+}
+
+#registerForm {
     border-radius: 1.25rem;
     background-color: #FFF;
     font-family: Outfit;
     padding: 2.5rem;
 }
 
-#loginForm h1 {
+.form-title {
     color: #142C35;
     font-family: inherit;
-    font-size: 2.87463rem;
+    font-size: 2.7rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 
 }
 
-#loginForm label {
+.form-control-label {
     font-family: inherit;
     font-size: 1.25rem;
     font-style: normal;
@@ -32,17 +38,27 @@ body {
     margin-top: 0.625rem;
 }
 
+
+
 #remember {
     margin-top: 0.9rem;
 }
 
-#loginForm input {
+#registerForm input[name="username"] {
     border: 1px solid #142C35;
     border-radius: 0;
 
 }
 
-#loginForm a {
+#username,
+#email,
+#password,
+#confirm_password {
+    border: 1px solid #142C35;
+    border-radius: 0;
+}
+
+#sign-in-link {
     text-decoration: none;
     font-family: inherit;
     color: #C2E890;
@@ -52,7 +68,7 @@ body {
     line-height: normal;
 }
 
-#loginForm p {
+#registerForm p {
     font-family: inherit;
     font-size: 1.25rem;
     font-style: normal;
